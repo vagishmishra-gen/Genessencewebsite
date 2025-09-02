@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 import Image from '../../../components/AppImage';
 
 const TestimonialsSection = () => {
@@ -267,13 +268,7 @@ const TestimonialsSection = () => {
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Ready to transform your business operations? Let's discuss your specific challenges and opportunities.
             </p>
-            <button
-              onClick={scrollToFAQ}
-              className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cta-shadow"
-            >
-              <span>Get Started Today</span>
-              <Icon name="ArrowRight" size={16} />
-            </button>
+            <SlidingCTA label="Get Started Today" onClick={scrollToFAQ} size="md" />
           </div>
         </motion.div>
       </div>

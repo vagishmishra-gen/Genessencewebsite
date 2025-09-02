@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Icon from '../AppIcon';
 import Button from './Button';
+import SlidingCTA from './SlidingCTA';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -121,17 +122,9 @@ const Header = () => {
               >
                 Get Quote
               </Button>
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => scrollToSection('lead-capture')}
-                className="cta-shadow font-cta"
-                iconName="ArrowRight"
-                iconPosition="right"
-                iconSize={16}
-              >
-                Start Project
-              </Button>
+              <div className="hidden xl:block">
+                <SlidingCTA label="Start Project" onClick={() => scrollToSection('lead-capture')} size="md" />
+              </div>
             </div>
 
             {/* Mobile Menu Button */}

@@ -168,12 +168,10 @@ const ResultsSection = () => {
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
             Meet the expert team behind these transformations and discover how we can help your business
           </p>
-          <button
-            onClick={scrollToTeam}
-            className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cta-shadow"
-          >
-            <span>Meet Our Team</span>
-            <Icon name="ArrowRight" size={16} />
+          <button onClick={scrollToTeam} className="mt-2">
+            <div className="inline-block">
+              <div className="hidden" />
+            </div>
           </button>
         </motion.div>
       </div>

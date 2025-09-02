@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 
 const ProblemSection = () => {
   const [manualHours, setManualHours] = useState(40);
@@ -135,15 +136,7 @@ const ProblemSection = () => {
                   <div className="text-sm text-muted-foreground">Lost annually</div>
                 </div>
               </div>
-              <Button
-                variant="default"
-                onClick={scrollToSolution}
-                className="cta-shadow"
-                iconName="ArrowRight"
-                iconPosition="right"
-              >
-                See AI Solution
-              </Button>
+              <SlidingCTA label="See AI Solution" onClick={scrollToSolution} size="md" />
             </div>
           </div>
         </motion.div>

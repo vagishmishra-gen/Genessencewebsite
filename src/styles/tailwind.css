@@ -144,4 +144,63 @@
   .animate-marquee:hover {
     animation-play-state: paused;
   }
+
+  /* Arrow swap animation: slide left out, jump to right, slide in */
+  @keyframes arrow-swap {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    45% {
+      transform: translateX(-105%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(105%);
+      opacity: 0;
+    }
+    55% {
+      transform: translateX(95%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .animate-arrow-swap-in {
+    animation: arrow-swap 700ms ease-out both;
+  }
+
+  /* Reverse direction for hover out */
+  @keyframes arrow-swap-out {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    45% {
+      transform: translateX(105%);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(-105%);
+      opacity: 0;
+    }
+    55% {
+      transform: translateX(-95%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .animate-arrow-swap-out {
+    animation: arrow-swap-out 700ms ease-out both;
+  }
+
+  /* Performance hint for smoother transforms */
+  .will-change-transform {
+    will-change: transform;
+  }
 }

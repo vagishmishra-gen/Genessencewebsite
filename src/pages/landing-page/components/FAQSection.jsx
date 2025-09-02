@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState(0);
@@ -129,21 +130,8 @@ const FAQSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={scrollToLeadCapture}
-                className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cta-shadow"
-              >
-                <Icon name="Calendar" size={16} />
-                <span>Schedule Free Consultation</span>
-              </button>
-              
-              <a
-                href="mailto:hello@genessence.com"
-                className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
-              >
-                <Icon name="Mail" size={16} />
-                <span>hello@genessence.com</span>
-              </a>
+              <SlidingCTA label="Schedule Free Consultation" onClick={scrollToLeadCapture} size="md" iconName="Calendar" />
+              <SlidingCTA label="hello@genessence.com" href="mailto:hello@genessence.com" size="md" iconName="Mail" />
             </div>
           </div>
         </motion.div>

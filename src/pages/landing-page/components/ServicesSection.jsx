@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 
 const ServicesSection = () => {
   const [activeService, setActiveService] = useState(0);
@@ -163,16 +164,7 @@ const ServicesSection = () => {
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Our proven methodology ensures successful AI implementation with guaranteed ROI
             </p>
-            <Button
-              variant="default"
-              size="lg"
-              onClick={scrollToProcess}
-              className="cta-shadow font-cta"
-              iconName="ArrowRight"
-              iconPosition="right"
-            >
-              See Our Process
-            </Button>
+            <SlidingCTA label="See Our Process" onClick={scrollToProcess} size="lg" />
           </div>
         </motion.div>
       </div>

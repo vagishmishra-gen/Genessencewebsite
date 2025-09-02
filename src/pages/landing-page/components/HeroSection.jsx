@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import HeroParticles from './HeroParticles';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 
 const HeroSection = () => {
   const [currentMetric, setCurrentMetric] = useState(0);
@@ -48,37 +50,13 @@ const HeroSection = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Animated Background */}
+      {/* Background Layers */}
       <div className="absolute inset-0">
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/10" />
-        
-        {/* Radial Gradient */}
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-primary/30 to-transparent rounded-full blur-3xl" />
-        
-        {/* Particles */}
-        {particles?.map((particle) => (
-          <motion.div
-            key={particle?.id}
-            className="absolute w-1 h-1 bg-secondary rounded-full opacity-60"
-            style={{
-              left: `${particle?.x}%`,
-              top: `${particle?.y}%`,
-              width: `${particle?.size}px`,
-              height: `${particle?.size}px`
-            }}
-            animate={{
-              y: [0, -100, 0],
-              opacity: [0.6, 1, 0.6]
-            }}
-            transition={{
-              duration: particle?.duration,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        ))}
       </div>
+      {/* WebGL Particles */}
+      <HeroParticles intensity={1} />
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -134,17 +112,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
           >
-            <Button
-              variant="default"
-              size="xl"
-              onClick={scrollToAssessment}
-              className="cta-shadow font-cta text-lg px-8 py-4 hover:scale-105 transition-transform"
-              iconName="Zap"
-              iconPosition="left"
-              iconSize={20}
-            >
-              Get Free AI Assessment
-            </Button>
+            <SlidingCTA label="Get Free AI Assessment" onClick={scrollToAssessment} size="lg" />
             
             <Button
               variant="outline"

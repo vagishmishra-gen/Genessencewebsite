@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+import SlidingCTA from '../../../components/ui/SlidingCTA';
 import Image from '../../../components/AppImage';
 
 const TeamSection = () => {
@@ -263,13 +264,7 @@ const TeamSection = () => {
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Hear what our clients say about working with our expert team
             </p>
-            <button
-              onClick={scrollToTestimonials}
-              className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors cta-shadow"
-            >
-              <span>Read Client Stories</span>
-              <Icon name="ArrowRight" size={16} />
-            </button>
+            <SlidingCTA label="Read Client Stories" onClick={scrollToTestimonials} size="md" />
           </div>
         </motion.div>
       </div>
