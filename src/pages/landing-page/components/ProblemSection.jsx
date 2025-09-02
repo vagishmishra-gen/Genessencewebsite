@@ -103,7 +103,7 @@ const ProblemSection = () => {
                     onChange={(e) => setManualHours(parseInt(e?.target?.value))}
                     className="flex-1 h-2 bg-muted rounded-lg appearance-none cursor-pointer slider"
                   />
-                  <span className="text-2xl font-bold text-primary w-16 text-center">
+                  <span className="text-2xl font-bold text-teal-500 w-16 text-center">
                     {manualHours}h
                   </span>
                 </div>
@@ -150,7 +150,7 @@ const ProblemSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-colors"
+              className="bg-card border border-border rounded-xl p-6 hover:border-teal-500/30 transition-colors"
             >
               <div className="w-12 h-12 bg-error/20 rounded-lg flex items-center justify-center mb-4">
                 <Icon name={problem?.icon} size={24} className="text-error" />

@@ -56,7 +56,7 @@ const FAQSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
               Questions
             </span>
           </h2>
@@ -120,8 +120,8 @@ const FAQSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
-            <Icon name="MessageCircle" size={48} className="text-primary mx-auto mb-4" />
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20">
+            <Icon name="MessageCircle" size={48} className="text-teal-500 mx-auto mb-4" />
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Still Have Questions?
             </h3>

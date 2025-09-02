@@ -86,7 +86,7 @@ const ResultsSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Proven{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
               Results & Impact
             </span>
           </h2>
@@ -104,7 +104,7 @@ const ResultsSection = () => {
               suffix: '%', 
               label: 'Average ROI', 
               icon: 'TrendingUp',
-              color: 'text-primary'
+              color: 'text-teal-500'
             },
             { 
               key: 'efficiency', 
@@ -137,7 +137,7 @@ const ResultsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-card border border-border rounded-2xl p-8 text-center hover:border-primary/30 transition-colors"
+              className="bg-card border border-border rounded-2xl p-8 text-center hover:border-teal-500/30 transition-colors"
             >
               <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center`}>
                 <Icon name={stat?.icon} size={32} className={stat?.color} />
@@ -160,7 +160,7 @@ const ResultsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20 text-center"
+          className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20 text-center"
         >
           <h3 className="text-2xl font-semibold text-foreground mb-4">
             Ready to Achieve Similar Results?

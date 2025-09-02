@@ -199,7 +199,7 @@ const Select = React.forwardRef(({
                                         key={option?.value}
                                         className={cn(
                                             "relative flex cursor-pointer select-none items-center rounded-sm px-3 py-2 text-sm outline-none hover:bg-accent hover:text-accent-foreground",
-                                            isSelected(option?.value) && "bg-primary text-primary-foreground",
+                                            isSelected(option?.value) && "bg-teal-500 text-white",
                                             option?.disabled && "pointer-events-none opacity-50"
                                         )}
                                         onClick={() => !option?.disabled && handleOptionSelect(option)}

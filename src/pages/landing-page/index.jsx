@@ -84,7 +84,7 @@ const LandingPage = () => {
         </script>
       </Helmet>
 
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background bg-teal-accent text-foreground">
         {/* Navigation & Progress */}
         <Header />
         <ScrollProgress />

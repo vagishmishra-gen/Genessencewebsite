@@ -93,10 +93,10 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     positionsRef.current = positions;
     velocitiesRef.current = velocities;
 
-    // Slightly brighter tones for better visibility on dark bg
-    const colorA = new THREE.Color('#33a1ff'); // brighter primary
-    const colorB = new THREE.Color('#00e0ff'); // brighter secondary
-    const colorC = new THREE.Color('#4aa3ff'); // brighter accent
+    // Teal color palette for cube animation
+    const colorA = new THREE.Color('#06b6d4'); // main teal
+    const colorB = new THREE.Color('#22d3ee'); // lighter teal for highlights
+    const colorC = new THREE.Color('#0891b2'); // darker teal for depth
     const colorW = new THREE.Color('#ffffff');
 
     for (let i = 0; i < particleTotal; i++) {
@@ -105,7 +105,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       positions[i3 + 1] = (Math.random() - 0.5) * 500;
       positions[i3 + 2] = (Math.random() - 0.5) * 1000;
 
-      const velScale = 0.18 * intensity;
+      const velScale = 0.25 * intensity; // Increased base velocity
       velocities[i3 + 0] = (Math.random() - 0.5) * velScale;
       velocities[i3 + 1] = (Math.random() - 0.5) * velScale;
       velocities[i3 + 2] = (Math.random() - 0.5) * velScale;
@@ -133,7 +133,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       void main() {
         vColor = color;
         vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = 3.2 * (300.0 / -mvPosition.z); // slightly larger for visibility
+        gl_PointSize = 4.5 * (300.0 / -mvPosition.z); // larger for better visibility
         gl_Position = projectionMatrix * mvPosition;
       }
     `;
@@ -145,7 +145,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
         float d = length(uv);
         float alpha = smoothstep(0.5, 0.0, d); // soft edge
         vec3 col = vColor;
-        gl_FragColor = vec4(col, alpha * 0.95);
+        gl_FragColor = vec4(col, alpha * 1.0); // Full opacity for better visibility
       }
     `;
 
@@ -162,12 +162,12 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // Halo layer for bloom-like feel
+    // Halo layer for bloom-like feel with teal glow
     const haloMaterial = new THREE.PointsMaterial({
-      size: 7,
-      vertexColors: true,
+      size: 10, // Increased halo size
+      color: new THREE.Color('#22d3ee'), // Lighter teal for bloom effect
       transparent: true,
-      opacity: 0.1,
+      opacity: 0.2, // Increased opacity for better teal glow
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
@@ -251,14 +251,10 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < radius) {
         const force = (radius - dist) / radius;
-        pos[i3 + 0] += (dx / (dist + 0.0001)) * force * 1.4;
-        pos[i3 + 1] += (dy / (dist + 0.0001)) * force * 1.4;
-      } else {
-        // mild pull to origin for cohesion
-        pos[i3 + 0] += -pos[i3 + 0] * 0.0008;
-        pos[i3 + 1] += -pos[i3 + 1] * 0.0008;
-        pos[i3 + 2] += -pos[i3 + 2] * 0.0006;
+        pos[i3 + 0] += (dx / (dist + 0.0001)) * force * 2.2; // Increased attraction force
+        pos[i3 + 1] += (dy / (dist + 0.0001)) * force * 2.2; // Increased attraction force
       }
+      // Removed center pull logic to allow free flow of particles
 
       // Bounds clamp to keep in view volume
       pos[i3 + 0] = THREE.MathUtils.clamp(pos[i3 + 0], -1100, 1100);
@@ -300,7 +296,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     if (reducedMotion || !supportsWebGL()) {
       const el = containerRef.current;
       if (el) {
-        el.style.background = 'radial-gradient(900px 400px at 50% 35%, rgba(0,123,255,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(0,212,255,0.10), transparent)';
+        el.style.background = 'radial-gradient(900px 400px at 50% 35%, rgba(6,182,212,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(34,211,238,0.10), transparent)';
         el.style.opacity = '0';
         el.style.transition = 'opacity 1200ms ease-out';
         requestAnimationFrame(() => (el.style.opacity = '1'));

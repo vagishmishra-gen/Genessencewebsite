@@ -18,17 +18,17 @@ export default {
     },
     extend: {
       colors: {
-        border: "var(--color-border)", /* cyan-400 with opacity */
+        border: "var(--color-border)", /* teal-400 with opacity */
         input: "var(--color-input)", /* slate-800 */
-        ring: "var(--color-ring)", /* blue-500 */
+        ring: "var(--color-ring)", /* teal-500 */
         background: "var(--color-background)", /* slate-900 */
         foreground: "var(--color-foreground)", /* white */
         primary: {
-          DEFAULT: "var(--color-primary)", /* blue-500 */
+          DEFAULT: "var(--color-primary)", /* teal-500 */
           foreground: "var(--color-primary-foreground)", /* white */
         },
         secondary: {
-          DEFAULT: "var(--color-secondary)", /* cyan-400 */
+          DEFAULT: "var(--color-secondary)", /* teal-400 */
           foreground: "var(--color-secondary-foreground)", /* slate-900 */
         },
         destructive: {
@@ -40,7 +40,7 @@ export default {
           foreground: "var(--color-muted-foreground)", /* slate-400 */
         },
         accent: {
-          DEFAULT: "var(--color-accent)", /* blue-600 */
+          DEFAULT: "var(--color-accent)", /* teal-600 */
           foreground: "var(--color-accent-foreground)", /* white */
         },
         popover: {
@@ -83,7 +83,7 @@ export default {
         'accent': '300',
       },
       boxShadow: {
-        'cta': '0 4px 20px rgba(0, 123, 255, 0.15)',
+        'cta': '0 4px 20px rgba(6, 182, 212, 0.15)',
         'card': '0 2px 10px rgba(0, 0, 0, 0.1)',
       },
       animation: {

@@ -29,9 +29,9 @@ const SlidingCTA = ({
         className,
       )}
     >
-      <span className="pointer-events-none absolute inset-0 bg-primary -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
+      <span className="pointer-events-none absolute inset-0 bg-teal-500 -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out" />
 
-      <span className={cn('relative z-10 flex items-center justify-center mr-4 bg-primary text-primary-foreground overflow-hidden', S.square)}>
+      <span className={cn('relative z-10 flex items-center justify-center mr-4 bg-teal-500 text-primary-foreground overflow-hidden', S.square)}>
         <Icon name={iconName} size={size === 'sm' ? 16 : size === 'md' ? 18 : 20} className="will-change-transform group-hover:animate-arrow-swap-in group-[&:not(:hover)]:animate-arrow-swap-out" />
       </span>
 
