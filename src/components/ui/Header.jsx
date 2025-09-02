@@ -12,7 +12,7 @@ const Header = () => {
     { label: 'Process', anchor: 'process', description: 'Implementation methodology' },
     { label: 'Results', anchor: 'results', description: 'Proven ROI metrics' },
     { label: 'Team', anchor: 'team', description: 'Expert credentials' },
-    { label: 'Contact', anchor: 'contact', description: 'Get started today' }
+    { label: 'Contact', anchor: 'lead-capture', description: 'Get started today' }
   ];
 
   useEffect(() => {
@@ -86,7 +86,7 @@ const Header = () => {
                   <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
                 </div>
                 <span className="text-2xl font-headline text-foreground">
-                  Etery AI Agency
+                  Genessence
                 </span>
               </button>
             </div>
@@ -116,7 +116,7 @@ const Header = () => {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('lead-capture')}
                 className="border-primary/20 text-primary hover:bg-primary/10"
               >
                 Get Quote
@@ -124,7 +124,7 @@ const Header = () => {
               <Button
                 variant="default"
                 size="sm"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('lead-capture')}
                 className="cta-shadow font-cta"
                 iconName="ArrowRight"
                 iconPosition="right"
@@ -163,7 +163,7 @@ const Header = () => {
                   <Icon name="Zap" size={20} color="white" strokeWidth={2.5} />
                 </div>
                 <span className="text-xl font-headline text-foreground">
-                  Etery AI
+                  Genessence
                 </span>
               </div>
               <button
@@ -200,7 +200,7 @@ const Header = () => {
                 <Button
                   variant="outline"
                   fullWidth
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('lead-capture')}
                   className="border-primary/20 text-primary hover:bg-primary/10"
                 >
                   Get Quote
@@ -208,7 +208,7 @@ const Header = () => {
                 <Button
                   variant="default"
                   fullWidth
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('lead-capture')}
                   className="cta-shadow font-cta"
                   iconName="ArrowRight"
                   iconPosition="right"

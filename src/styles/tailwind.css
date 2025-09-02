@@ -129,4 +129,19 @@
   .text-balance {
     text-wrap: balance;
   }
+  /* Marquee animation for scrolling company names */
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee-scroll 25s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
 }

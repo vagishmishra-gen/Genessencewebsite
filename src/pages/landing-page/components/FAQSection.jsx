@@ -11,7 +11,7 @@ const FAQSection = () => {
       answer: `Most clients see initial improvements within 2-4 weeks of deployment. Significant ROI typically becomes evident within 3-6 months. Our phased implementation approach ensures you start benefiting from AI automation early in the process.\n\nWe provide weekly progress reports and real-time dashboards so you can track improvements in efficiency, cost savings, and revenue generation from day one.`
     },
     {
-      question: "What makes Etery different from other AI agencies?",
+      question: "What makes Genessence different from other AI agencies?",
       answer: `Unlike agencies that over-promise and under-deliver, we guarantee results with our performance-based pricing model. Our 95% success rate comes from our proven methodology:\n\n• Comprehensive discovery and assessment phase\n• Custom solution design tailored to your business\n• Agile development with continuous testing\n• 24/7 monitoring and optimization post-deployment\n\nWe also provide complete transparency with regular updates and measurable KPIs throughout the entire process.`
     },
     {
@@ -138,11 +138,11 @@ const FAQSection = () => {
               </button>
               
               <a
-                href="mailto:hello@eteryai.com"
+                href="mailto:hello@genessence.com"
                 className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
               >
                 <Icon name="Mail" size={16} />
-                <span>hello@eteryai.com</span>
+                <span>hello@genessence.com</span>
               </a>
             </div>
           </div>

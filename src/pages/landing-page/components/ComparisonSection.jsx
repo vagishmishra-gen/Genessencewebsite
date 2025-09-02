@@ -7,37 +7,37 @@ const ComparisonSection = () => {
     {
       category: "Implementation Time",
       typical: "6-12 months",
-      etery: "4-8 weeks",
+      genessence: "4-8 weeks",
       advantage: "75% faster delivery"
     },
     {
       category: "ROI Timeline",
       typical: "12-18 months",
-      etery: "3-6 months",
+      genessence: "3-6 months",
       advantage: "3x faster ROI"
     },
     {
       category: "Success Rate",
       typical: "45-60%",
-      etery: "95%+",
+      genessence: "95%+",
       advantage: "Guaranteed results"
     },
     {
       category: "Ongoing Support",
       typical: "Limited",
-      etery: "24/7 monitoring",
+      genessence: "24/7 monitoring",
       advantage: "Continuous optimization"
     },
     {
       category: "Integration Complexity",
       typical: "High disruption",
-      etery: "Seamless integration",
+      genessence: "Seamless integration",
       advantage: "Zero downtime"
     },
     {
       category: "Cost Structure",
       typical: "High upfront costs",
-      etery: "Performance-based pricing",
+      genessence: "Performance-based pricing",
       advantage: "Pay for results"
     }
   ];
@@ -55,7 +55,7 @@ const ComparisonSection = () => {
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Why Choose{' '}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Etery AI Agency
+              Genessence
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -73,7 +73,7 @@ const ComparisonSection = () => {
               <h3 className="font-semibold text-muted-foreground">Typical Agencies</h3>
             </div>
             <div className="p-6 border-l border-border bg-primary/5">
-              <h3 className="font-semibold text-primary">Etery AI Agency</h3>
+              <h3 className="font-semibold text-primary">Genessence</h3>
             </div>
             <div className="p-6 border-l border-border">
               <h3 className="font-semibold text-secondary">Our Advantage</h3>
@@ -102,7 +102,7 @@ const ComparisonSection = () => {
               <div className="p-6 border-l border-border bg-primary/5">
                 <div className="flex items-center text-primary font-medium">
                   <Icon name="Check" size={16} className="text-primary mr-2" />
-                  {row?.etery}
+                  {row?.genessence}
                 </div>
               </div>
               <div className="p-6 border-l border-border">
@@ -125,7 +125,7 @@ const ComparisonSection = () => {
         >
           <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
-              Experience the Etery Difference
+              Experience the Genessence Difference
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Join 100+ companies that have transformed their operations with our proven AI solutions

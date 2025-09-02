@@ -169,11 +169,16 @@ const HeroSection = () => {
             <p className="text-sm text-muted-foreground mb-4">
               Trusted by 100+ companies worldwide
             </p>
-            <div className="flex items-center justify-center space-x-8 opacity-60">
-              <div className="text-2xl font-bold text-foreground">Microsoft</div>
-              <div className="text-2xl font-bold text-foreground">Amazon</div>
-              <div className="text-2xl font-bold text-foreground">Google</div>
-              <div className="text-2xl font-bold text-foreground">IBM</div>
+            <div className="relative overflow-hidden">
+              <div className="flex whitespace-nowrap opacity-60 animate-marquee">
+                {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA']
+                  .concat(['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA'])
+                  ?.map((company, index) => (
+                  <div key={index} className="mx-8 text-2xl font-bold text-foreground inline-block">
+                    {company}
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </motion.div>

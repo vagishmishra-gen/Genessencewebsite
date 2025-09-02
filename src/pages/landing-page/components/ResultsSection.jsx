@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+
 
 const ResultsSection = () => {
   const [animatedStats, setAnimatedStats] = useState({
@@ -18,22 +18,7 @@ const ResultsSection = () => {
     clients: 100
   };
 
-  const revenueData = [
-    { month: 'Jan', before: 100, after: 180 },
-    { month: 'Feb', before: 105, after: 195 },
-    { month: 'Mar', before: 110, after: 220 },
-    { month: 'Apr', before: 108, after: 245 },
-    { month: 'May', before: 115, after: 280 },
-    { month: 'Jun', before: 120, after: 320 }
-  ];
 
-  const efficiencyData = [
-    { process: 'Data Entry', improvement: 75 },
-    { process: 'Customer Support', improvement: 80 },
-    { process: 'Sales Process', improvement: 65 },
-    { process: 'Inventory Mgmt', improvement: 90 },
-    { process: 'Reporting', improvement: 85 }
-  ];
 
   useEffect(() => {
     const animateStats = () => {
@@ -167,97 +152,7 @@ const ResultsSection = () => {
           ))}
         </div>
 
-        {/* Charts Section */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
-          {/* Revenue Growth Chart */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-2xl p-8"
-          >
-            <h3 className="text-2xl font-semibold text-foreground mb-6">
-              Revenue Growth Impact
-            </h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                  <XAxis dataKey="month" stroke="#b8c5d1" />
-                  <YAxis stroke="#b8c5d1" />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#1a1f2e', 
-                      border: '1px solid rgba(0, 212, 255, 0.2)',
-                      borderRadius: '8px'
-                    }}
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="before" 
-                    stroke="#ff4757" 
-                    strokeWidth={2}
-                    name="Before AI"
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="after" 
-                    stroke="#007bff" 
-                    strokeWidth={3}
-                    name="After AI"
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              Average revenue increase of 180% within 6 months of AI implementation
-            </p>
-          </motion.div>
 
-          {/* Efficiency Improvements */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-card border border-border rounded-2xl p-8"
-          >
-            <h3 className="text-2xl font-semibold text-foreground mb-6">
-              Process Efficiency Gains
-            </h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={efficiencyData} layout="horizontal">
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                  <XAxis type="number" stroke="#b8c5d1" />
-                  <YAxis dataKey="process" type="category" stroke="#b8c5d1" width={100} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#1a1f2e', 
-                      border: '1px solid rgba(0, 212, 255, 0.2)',
-                      borderRadius: '8px'
-                    }}
-                  />
-                  <Bar 
-                    dataKey="improvement" 
-                    fill="url(#gradient)"
-                    radius={[0, 4, 4, 0]}
-                  />
-                  <defs>
-                    <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="0">
-                      <stop offset="0%" stopColor="#007bff" />
-                      <stop offset="100%" stopColor="#00d4ff" />
-                    </linearGradient>
-                  </defs>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              Efficiency improvements across key business processes
-            </p>
-          </motion.div>
-        </div>
 
         {/* Success Stories Preview */}
         <motion.div

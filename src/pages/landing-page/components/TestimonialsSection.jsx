@@ -16,7 +16,7 @@ const TestimonialsSection = () => {
       companySize: "$50M Revenue",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
       rating: 5,
-      quote: `Etery transformed our entire operations workflow in just 6 weeks. The AI automation they implemented reduced our processing time by 75% and increased our revenue by $2.3M in the first year alone. Their team's expertise is unmatched.`,
+      quote: `Genessence transformed our entire operations workflow in just 6 weeks. The AI automation they implemented reduced our processing time by 75% and increased our revenue by $2.3M in the first year alone. Their team's expertise is unmatched.`,
       results: {
         timeReduction: "75%",
         revenueIncrease: "$2.3M",
@@ -32,7 +32,7 @@ const TestimonialsSection = () => {
       companySize: "$120M Revenue",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       rating: 5,
-      quote: `The predictive analytics solution Etery built for us has revolutionized our supply chain management. We now predict demand with 94% accuracy and reduced inventory costs by $1.8M annually. Outstanding results and professional service.`,
+      quote: `The predictive analytics solution Genessence built for us has revolutionized our supply chain management. We now predict demand with 94% accuracy and reduced inventory costs by $1.8M annually. Outstanding results and professional service.`,
       results: {
         accuracy: "94%",
         costSavings: "$1.8M",
@@ -48,7 +48,7 @@ const TestimonialsSection = () => {
       companySize: "$200M Assets",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       rating: 5,
-      quote: `Etery's AI-powered customer service solution handles 80% of our inquiries automatically while maintaining a 96% satisfaction rate. Customer response time dropped from hours to seconds. This is the future of banking operations.`,
+      quote: `Genessence's AI-powered customer service solution handles 80% of our inquiries automatically while maintaining a 96% satisfaction rate. Customer response time dropped from hours to seconds. This is the future of banking operations.`,
       results: {
         automation: "80%",
         satisfaction: "96%",
@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
       companySize: "$80M Revenue",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       rating: 5,
-      quote: `The sales intelligence platform Etery developed increased our conversion rates by 45% and helped us identify $3.2M in new revenue opportunities. Their data-driven approach to AI implementation is exactly what we needed.`,
+      quote: `The sales intelligence platform Genessence developed increased our conversion rates by 45% and helped us identify $3.2M in new revenue opportunities. Their data-driven approach to AI implementation is exactly what we needed.`,
       results: {
         conversionIncrease: "45%",
         newRevenue: "$3.2M",
@@ -176,12 +176,9 @@ const TestimonialsSection = () => {
 
                 {/* Quote */}
                 <div className="md:col-span-2">
-                  <div className="relative">
-                    <Icon name="Quote" size={48} className="text-primary/20 absolute -top-4 -left-4" />
-                    <blockquote className="text-lg md:text-xl text-foreground leading-relaxed relative z-10">
-                      {testimonials?.[currentTestimonial]?.quote}
-                    </blockquote>
-                  </div>
+                  <blockquote className="text-lg md:text-xl text-foreground leading-relaxed">
+                    {testimonials?.[currentTestimonial]?.quote}
+                  </blockquote>
                   
                   {/* Results Metrics */}
                   <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-border">
@@ -204,14 +201,14 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
+            className="absolute -left-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
           >
             <Icon name="ChevronLeft" size={20} className="text-muted-foreground" />
           </button>
           
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
+            className="absolute -right-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
           >
             <Icon name="ChevronRight" size={20} className="text-muted-foreground" />
           </button>
@@ -241,12 +238,17 @@ const TestimonialsSection = () => {
           <p className="text-sm text-muted-foreground mb-6">
             Trusted by leading companies worldwide
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-            {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce']?.map((company, index) => (
-              <div key={index} className="text-xl font-bold text-foreground">
-                {company}
-              </div>
-            ))}
+          <div className="relative overflow-hidden">
+            {/* Marquee track duplicated for seamless loop */}
+            <div className="flex whitespace-nowrap opacity-60 animate-marquee">
+              {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA']
+                .concat(['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA'])
+                ?.map((company, index) => (
+                <div key={index} className="mx-8 text-xl font-bold text-foreground inline-block">
+                  {company}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
 

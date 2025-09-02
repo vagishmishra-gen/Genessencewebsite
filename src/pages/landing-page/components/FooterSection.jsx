@@ -71,7 +71,7 @@ const FooterSection = () => {
                     <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
                   </div>
                   <span className="text-2xl font-headline text-foreground">
-                    Etery AI Agency
+                    Genessence
                   </span>
                 </div>
                 
@@ -85,8 +85,8 @@ const FooterSection = () => {
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <Icon name="Mail" size={16} className="text-primary" />
-                    <a href="mailto:hello@eteryai.com" className="hover:text-primary transition-colors">
-                      hello@eteryai.com
+                    <a href="mailto:hello@genessence.com" className="hover:text-primary transition-colors">
+                      hello@genessence.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
@@ -247,7 +247,7 @@ const FooterSection = () => {
         <div className="py-6 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-muted-foreground text-sm">
-              © {currentYear} Etery AI Agency. All rights reserved.
+              © {currentYear} Genessence. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6">

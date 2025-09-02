@@ -122,7 +122,7 @@ const TeamSection = () => {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16">
           {teamMembers?.map((member, index) => (
             <motion.div
               key={member?.id}
@@ -134,7 +134,7 @@ const TeamSection = () => {
               onMouseEnter={() => setHoveredMember(member?.id)}
               onMouseLeave={() => setHoveredMember(null)}
             >
-              <div className="bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
+              <div className="bg-card border border-border rounded-2xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
                 {/* Profile Image */}
                 <div className="relative mb-6">
                   <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-primary/20">
@@ -187,7 +187,7 @@ const TeamSection = () => {
 
                 {/* Hover Details */}
                 <motion.div
-                  className="absolute inset-0 bg-card/95 backdrop-blur-sm rounded-2xl p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-card/95 backdrop-blur-sm rounded-2xl p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={{ y: 20 }}
                   whileHover={{ y: 0 }}
                 >

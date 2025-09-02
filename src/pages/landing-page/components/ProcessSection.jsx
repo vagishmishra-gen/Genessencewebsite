@@ -105,7 +105,7 @@ const ProcessSection = () => {
         </div>
 
         {/* Process Steps */}
-        <div className="grid lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16">
           {processSteps?.map((step, index) => (
             <motion.div
               key={index}
@@ -123,7 +123,7 @@ const ProcessSection = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent z-0" />
               )}
 
-              <div className={`relative bg-card border rounded-2xl p-6 z-10 transition-all ${
+              <div className={`relative bg-card border rounded-2xl p-8 z-10 transition-all ${
                 activeStep === index 
                   ? 'border-primary shadow-lg' 
                   : 'border-border hover:border-primary/30'
