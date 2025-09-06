@@ -68,8 +68,8 @@ const LeadCaptureSection = () => {
               <p className="text-xl text-muted-foreground mb-6">
                 We've received your information and will contact you within 24 hours to schedule your free AI assessment.
               </p>
-              <div className="bg-teal-500/10 rounded-lg p-4 border border-teal-500/20">
-                <p className="text-teal-500 font-medium">
+              <div className="bg-primary/10 rounded-lg p-4 border border-primary/20">
+                <p className="text-primary font-medium">
                   What happens next?
                 </p>
                 <ul className="text-sm text-muted-foreground mt-2 space-y-1">
@@ -97,7 +97,7 @@ const LeadCaptureSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Get Your Free{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               AI Assessment
             </span>
           </h2>
@@ -111,11 +111,11 @@ const LeadCaptureSection = () => {
           <div className="mb-8">
             <div className="flex justify-between items-center mb-2">
               <span className="text-sm text-muted-foreground">Step {currentStep} of 3</span>
-              <span className="text-sm text-teal-500 font-medium">{Math.round(getStepProgress())}% Complete</span>
+              <span className="text-sm text-primary font-medium">{Math.round(getStepProgress())}% Complete</span>
             </div>
             <div className="w-full bg-muted/30 rounded-full h-2">
               <motion.div
-                className="h-2 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full"
+                className="h-2 bg-gradient-to-r from-primary to-secondary rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${getStepProgress()}%` }}
                 transition={{ duration: 0.5 }}
@@ -208,7 +208,7 @@ const LeadCaptureSection = () => {
                       Company Size
                     </label>
                     <select
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       {...register('companySize', { required: 'Company size is required' })}
                     >
                       <option value="">Select company size</option>
@@ -228,7 +228,7 @@ const LeadCaptureSection = () => {
                       Industry
                     </label>
                     <select
-                      className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       {...register('industry', { required: 'Industry is required' })}
                     >
                       <option value="">Select industry</option>
@@ -274,7 +274,7 @@ const LeadCaptureSection = () => {
                     What's your biggest operational challenge?
                   </label>
                   <textarea
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
+                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                     rows="4"
                     placeholder="Describe the manual processes or inefficiencies you'd like to automate..."
                     {...register('challenge', { required: 'Please describe your challenge' })}
@@ -301,7 +301,7 @@ const LeadCaptureSection = () => {
                         <input
                           type="checkbox"
                           value={area}
-                          className="w-4 h-4 text-teal-500 bg-input border-border rounded focus:ring-teal-500 focus:ring-2"
+                          className="w-4 h-4 text-primary bg-input border-border rounded focus:ring-primary focus:ring-2"
                           {...register('interests')}
                         />
                         <span className="text-muted-foreground">{area}</span>
@@ -315,7 +315,7 @@ const LeadCaptureSection = () => {
                     Timeline for Implementation
                   </label>
                   <select
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                    className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                     {...register('timeline', { required: 'Timeline is required' })}
                   >
                     <option value="">Select timeline</option>
@@ -383,7 +383,7 @@ const LeadCaptureSection = () => {
           <div className="mt-8 pt-6 border-t border-border">
             <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
-                <Icon name="Shield" size={16} className="text-teal-500" />
+                <Icon name="Shield" size={16} className="text-primary" />
                 <span>100% Secure & Confidential</span>
               </div>
               <div className="flex items-center space-x-2">

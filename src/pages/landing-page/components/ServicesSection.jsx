@@ -23,7 +23,7 @@ const ServicesSection = () => {
         result: "Reduced processing time by 75%",
         roi: "300% ROI in 6 months"
       },
-      gradient: "from-teal-500 to-teal-600"
+      gradient: "from-primary to-accent"
     },
     {
       icon: "Users",
@@ -80,7 +80,7 @@ const ServicesSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             AI Solutions That{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Transform Business
             </span>
           </h2>
@@ -97,8 +97,8 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative bg-card border border-border rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:border-teal-500/30 hover:shadow-xl ${
-                activeService === index ? 'border-teal-500/50 shadow-lg' : ''
+              className={`relative bg-card border border-border rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:border-primary/30 hover:shadow-xl ${
+                activeService === index ? 'border-primary/50 shadow-lg' : ''
               }`}
               onMouseEnter={() => setActiveService(index)}
             >
@@ -119,7 +119,7 @@ const ServicesSection = () => {
               <ul className="space-y-2 mb-8">
                 {service?.features?.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                    <Icon name="Check" size={16} className="text-teal-500 mr-2 flex-shrink-0" />
+                    <Icon name="Check" size={16} className="text-primary mr-2 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
@@ -131,7 +131,7 @@ const ServicesSection = () => {
                 <div className="font-semibold text-foreground text-sm mb-1">
                   {service?.caseStudy?.client}
                 </div>
-                <div className="text-teal-500 text-sm font-medium mb-1">
+                <div className="text-primary text-sm font-medium mb-1">
                   {service?.caseStudy?.result}
                 </div>
                 <div className="text-secondary text-sm font-bold">
@@ -157,7 +157,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Ready to Transform Your Operations?
             </h3>

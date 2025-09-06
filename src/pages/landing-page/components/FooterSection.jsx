@@ -67,7 +67,7 @@ const FooterSection = () => {
                 viewport={{ once: true }}
               >
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-400 rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                     <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
                   </div>
                   <span className="text-2xl font-headline text-foreground">
@@ -84,19 +84,19 @@ const FooterSection = () => {
                 {/* Contact Info */}
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center space-x-3 text-muted-foreground">
-                    <Icon name="Mail" size={16} className="text-teal-500" />
-                    <a href="mailto:hello@genessence.com" className="hover:text-teal-500 transition-colors">
+                    <Icon name="Mail" size={16} className="text-primary" />
+                    <a href="mailto:hello@genessence.com" className="hover:text-primary transition-colors">
                       hello@genessence.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
-                    <Icon name="Phone" size={16} className="text-teal-500" />
-                    <a href="tel:+1-555-123-4567" className="hover:text-teal-500 transition-colors">
+                    <Icon name="Phone" size={16} className="text-primary" />
+                    <a href="tel:+1-555-123-4567" className="hover:text-primary transition-colors">
                       +1 (555) 123-4567
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
-                    <Icon name="MapPin" size={16} className="text-teal-500" />
+                    <Icon name="MapPin" size={16} className="text-primary" />
                     <span>San Francisco, CA & Remote</span>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const FooterSection = () => {
                     <a
                       key={social?.name}
                       href={social?.href}
-                      className="w-10 h-10 bg-muted/20 rounded-lg flex items-center justify-center hover:bg-teal-500 hover:text-teal-500-foreground transition-colors"
+                      className="w-10 h-10 bg-muted/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
                       aria-label={social?.name}
                     >
                       <Icon name={social?.icon} size={18} />
@@ -131,7 +131,7 @@ const FooterSection = () => {
                     <li key={link?.name}>
                       <button
                         onClick={() => scrollToSection(link?.href)}
-                        className="text-muted-foreground hover:text-teal-500 transition-colors text-left"
+                        className="text-muted-foreground hover:text-primary transition-colors text-left"
                       >
                         {link?.name}
                       </button>
@@ -155,7 +155,7 @@ const FooterSection = () => {
                     <li key={link?.name}>
                       <button
                         onClick={() => scrollToSection(link?.href)}
-                        className="text-muted-foreground hover:text-teal-500 transition-colors text-left"
+                        className="text-muted-foreground hover:text-primary transition-colors text-left"
                       >
                         {link?.name}
                       </button>
@@ -179,7 +179,7 @@ const FooterSection = () => {
                     <li key={link?.name}>
                       <button
                         onClick={() => scrollToSection(link?.href)}
-                        className="text-muted-foreground hover:text-teal-500 transition-colors text-left"
+                        className="text-muted-foreground hover:text-primary transition-colors text-left"
                       >
                         {link?.name}
                       </button>
@@ -234,9 +234,9 @@ const FooterSection = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="flex-1 px-4 py-2 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
-              <button className="px-6 py-2 bg-primary text-teal-500-foreground rounded-lg hover:bg-teal-500/90 transition-colors">
+              <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
                 Subscribe
               </button>
             </div>
@@ -244,7 +244,7 @@ const FooterSection = () => {
         </motion.div>
 
         {/* Teal Accent Bar */}
-        <div className="h-0.5 bg-teal-500"></div>
+        <div className="h-0.5 bg-primary"></div>
         
         {/* Bottom Bar */}
         <div className="py-6 border-t border-border">
@@ -255,7 +255,7 @@ const FooterSection = () => {
             
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Icon name="Shield" size={16} className="text-teal-500" />
+                <Icon name="Shield" size={16} className="text-primary" />
                 <span>SOC 2 Certified</span>
               </div>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
@@ -264,7 +264,7 @@ const FooterSection = () => {
               </div>
               <button
                 onClick={scrollToTop}
-                className="flex items-center space-x-2 text-sm text-teal-500 hover:text-teal-500/80 transition-colors"
+                className="flex items-center space-x-2 text-sm text-primary hover:text-primary/80 transition-colors"
               >
                 <span>Back to top</span>
                 <Icon name="ArrowUp" size={16} />

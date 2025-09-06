@@ -76,7 +76,7 @@ const ProcessSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Our Proven{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Implementation Process
             </span>
           </h2>
@@ -94,7 +94,7 @@ const ProcessSection = () => {
                 onClick={() => setActiveStep(index)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   activeStep === index
-                    ? 'bg-teal-500 text-teal-500-foreground'
+                    ? 'bg-primary text-primary-foreground'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -125,19 +125,19 @@ const ProcessSection = () => {
 
               <div className={`relative bg-card border rounded-2xl p-8 z-10 transition-all ${
                 activeStep === index 
-                  ? 'border-teal-500 shadow-lg' 
-                  : 'border-border hover:border-teal-500/30'
+                  ? 'border-primary shadow-lg' 
+                  : 'border-border hover:border-primary/30'
               }`}>
                 {/* Step Number */}
                 <div className="flex items-center justify-between mb-4">
                   <div className={`text-2xl font-bold ${
-                    activeStep === index ? 'text-teal-500' : 'text-muted-foreground'
+                    activeStep === index ? 'text-primary' : 'text-muted-foreground'
                   }`}>
                     {step?.number}
                   </div>
                   <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
                     activeStep === index 
-                      ? 'bg-teal-500 text-teal-500-foreground' 
+                      ? 'bg-primary text-primary-foreground' 
                       : 'bg-muted text-muted-foreground'
                   }`}>
                     <Icon name={step?.icon} size={24} />
@@ -148,7 +148,7 @@ const ProcessSection = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {step?.title}
                 </h3>
-                <div className="text-sm text-teal-500 font-medium mb-3">
+                <div className="text-sm text-primary font-medium mb-3">
                   {step?.duration}
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -158,7 +158,7 @@ const ProcessSection = () => {
                 {/* Progress Indicator */}
                 <div className="w-full bg-muted/30 rounded-full h-1">
                   <motion.div
-                    className="h-1 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full"
+                    className="h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: activeStep >= index ? '100%' : '0%' }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -194,7 +194,7 @@ const ProcessSection = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className="flex items-center text-muted-foreground"
                   >
-                    <Icon name="CheckCircle" size={20} className="text-teal-500 mr-3 flex-shrink-0" />
+                    <Icon name="CheckCircle" size={20} className="text-primary mr-3 flex-shrink-0" />
                     {deliverable}
                   </motion.li>
                 ))}
@@ -206,7 +206,7 @@ const ProcessSection = () => {
                 <Icon 
                   name={processSteps?.[activeStep]?.icon} 
                   size={80} 
-                  className="text-teal-500" 
+                  className="text-primary" 
                 />
               </div>
               <div className="text-3xl font-bold text-foreground mb-2">

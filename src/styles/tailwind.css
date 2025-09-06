@@ -6,45 +6,37 @@
 
 @layer base {
   :root {
-    /* Primary Colors */
-    --color-primary: #06b6d4; /* teal-500 */
+    /* Light Theme Colors */
+    --color-primary: #004aad; /* deep blue */
     --color-primary-foreground: #ffffff; /* white */
     
-    /* Secondary Colors */
-    --color-secondary: #22d3ee; /* teal-400 */
-    --color-secondary-foreground: #0a0f1c; /* slate-900 */
+    --color-secondary: #00d1ff; /* bright cyan */
+    --color-secondary-foreground: #000000; /* black */
     
-    /* Accent Colors */
-    --color-accent: #0891b2; /* teal-600 */
-    --color-accent-foreground: #ffffff; /* white */
+    --color-accent: #5de0e6; /* light aqua */
+    --color-accent-foreground: #000000; /* black */
     
-    /* Background Colors */
-    --color-background: #0a0f1c; /* slate-900 */
-    --color-foreground: #ffffff; /* white */
+    --color-background: #ffffff; /* white */
+    --color-foreground: #000000; /* black */
     
-    /* Surface Colors */
-    --color-card: #1a1f2e; /* slate-800 */
-    --color-card-foreground: #ffffff; /* white */
+    --color-card: #f8fafc; /* light gray */
+    --color-card-foreground: #000000; /* black */
     
-    /* Popover Colors */
-    --color-popover: #1a1f2e; /* slate-800 */
-    --color-popover-foreground: #ffffff; /* white */
+    --color-popover: #ffffff; /* white */
+    --color-popover-foreground: #000000; /* black */
     
-    /* Muted Colors */
-    --color-muted: #1a1f2e; /* slate-800 */
-    --color-muted-foreground: #b8c5d1; /* slate-400 */
+    --color-muted: #f1f5f9; /* light gray */
+    --color-muted-foreground: #64748b; /* slate-500 */
     
-    /* Border and Input */
-    --color-border: rgba(34, 211, 238, 0.2); /* teal-400 with opacity */
-    --color-input: #1a1f2e; /* slate-800 */
-    --color-ring: #06b6d4; /* teal-500 */
+    --color-border: rgba(0, 74, 173, 0.2); /* deep blue with opacity */
+    --color-input: #f1f5f9; /* light gray */
+    --color-ring: #004aad; /* deep blue */
     
-    /* Status Colors */
     --color-success: #00ff88; /* green-400 */
-    --color-success-foreground: #0a0f1c; /* slate-900 */
+    --color-success-foreground: #000000; /* black */
     
     --color-warning: #ffaa00; /* amber-400 */
-    --color-warning-foreground: #0a0f1c; /* slate-900 */
+    --color-warning-foreground: #000000; /* black */
     
     --color-error: #ff4757; /* red-500 */
     --color-error-foreground: #ffffff; /* white */
@@ -53,13 +45,57 @@
     --color-destructive-foreground: #ffffff; /* white */
     
     /* Custom Shadows */
-    --shadow-cta: 0 4px 20px rgba(6, 182, 212, 0.15);
+    --shadow-cta: 0 4px 20px rgba(0, 74, 173, 0.15);
     --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.1);
     
     /* Animation Durations */
     --duration-fast: 250ms;
     --duration-normal: 300ms;
     --duration-slow: 1500ms;
+  }
+
+  .dark {
+    /* Dark Theme Colors */
+    --color-primary: #00d1ff; /* bright cyan */
+    --color-primary-foreground: #000000; /* black */
+    
+    --color-secondary: #5de0e6; /* light aqua */
+    --color-secondary-foreground: #000000; /* black */
+    
+    --color-accent: #004aad; /* deep blue */
+    --color-accent-foreground: #ffffff; /* white */
+    
+    --color-background: #000000; /* black */
+    --color-foreground: #ffffff; /* white */
+    
+    --color-card: #1a1a1a; /* dark gray */
+    --color-card-foreground: #ffffff; /* white */
+    
+    --color-popover: #1a1a1a; /* dark gray */
+    --color-popover-foreground: #ffffff; /* white */
+    
+    --color-muted: #1a1a1a; /* dark gray */
+    --color-muted-foreground: #94a3b8; /* slate-400 */
+    
+    --color-border: rgba(0, 209, 255, 0.2); /* bright cyan with opacity */
+    --color-input: #1a1a1a; /* dark gray */
+    --color-ring: #00d1ff; /* bright cyan */
+    
+    --color-success: #00ff88; /* green-400 */
+    --color-success-foreground: #000000; /* black */
+    
+    --color-warning: #ffaa00; /* amber-400 */
+    --color-warning-foreground: #000000; /* black */
+    
+    --color-error: #ff4757; /* red-500 */
+    --color-error-foreground: #ffffff; /* white */
+    
+    --color-destructive: #ff4757; /* red-500 */
+    --color-destructive-foreground: #ffffff; /* white */
+    
+    /* Custom Shadows */
+    --shadow-cta: 0 4px 20px rgba(0, 209, 255, 0.15);
+    --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
   
   * {
@@ -69,6 +105,12 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', sans-serif;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+  
+  /* Smooth transitions for theme switching */
+  * {
+    transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, box-shadow 300ms ease;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -130,9 +172,9 @@
     text-wrap: balance;
   }
   
-  /* Subtle teal background accent for global brand reinforcement */
+  /* Subtle background accent for global brand reinforcement */
   .bg-teal-accent {
-    background-image: radial-gradient(circle at center, rgba(6,182,212,0.04), transparent 75%);
+    background-image: radial-gradient(circle at center, rgba(93,224,230,0.04), transparent 75%);
   }
   /* Marquee animation for scrolling company names */
   @keyframes marquee-scroll {

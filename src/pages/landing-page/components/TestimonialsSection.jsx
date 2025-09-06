@@ -119,7 +119,7 @@ const TestimonialsSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             What Our{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Clients Say
             </span>
           </h2>
@@ -142,7 +142,7 @@ const TestimonialsSection = () => {
               <div className="grid md:grid-cols-3 gap-8 items-center">
                 {/* Client Info */}
                 <div className="text-center md:text-left">
-                  <div className="w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-teal-500/20 mb-4">
+                  <div className="w-24 h-24 mx-auto md:mx-0 rounded-full overflow-hidden border-2 border-primary/20 mb-4">
                     <Image
                       src={testimonials?.[currentTestimonial]?.image}
                       alt={testimonials?.[currentTestimonial]?.name}
@@ -153,7 +153,7 @@ const TestimonialsSection = () => {
                   <h3 className="text-xl font-semibold text-foreground mb-1">
                     {testimonials?.[currentTestimonial]?.name}
                   </h3>
-                  <p className="text-teal-500 font-medium mb-1">
+                  <p className="text-primary font-medium mb-1">
                     {testimonials?.[currentTestimonial]?.role}
                   </p>
                   <p className="text-muted-foreground text-sm mb-2">
@@ -185,7 +185,7 @@ const TestimonialsSection = () => {
                   <div className="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-border">
                     {Object.entries(testimonials?.[currentTestimonial]?.results)?.map(([key, value], index) => (
                       <div key={key} className="text-center">
-                        <div className="text-2xl font-bold text-teal-500 mb-1">
+                        <div className="text-2xl font-bold text-primary mb-1">
                           {value}
                         </div>
                         <div className="text-xs text-muted-foreground capitalize">
@@ -202,14 +202,14 @@ const TestimonialsSection = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute -left-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-teal-500/30 transition-colors"
+            className="absolute -left-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
           >
             <Icon name="ChevronLeft" size={20} className="text-muted-foreground" />
           </button>
           
           <button
             onClick={nextTestimonial}
-            className="absolute -right-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-teal-500/30 transition-colors"
+            className="absolute -right-16 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center hover:border-primary/30 transition-colors"
           >
             <Icon name="ChevronRight" size={20} className="text-muted-foreground" />
           </button>
@@ -222,7 +222,7 @@ const TestimonialsSection = () => {
               key={index}
               onClick={() => goToTestimonial(index)}
               className={`w-3 h-3 rounded-full transition-colors ${
-                currentTestimonial === index ? 'bg-teal-500' : 'bg-muted-foreground/30'
+                currentTestimonial === index ? 'bg-primary' : 'bg-muted-foreground/30'
               }`}
             />
           ))}
@@ -261,7 +261,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Join These Success Stories
             </h3>

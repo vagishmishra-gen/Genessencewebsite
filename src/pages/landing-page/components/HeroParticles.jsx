@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { useTheme } from '../../../contexts/ThemeContext';
 
 // HeroParticles
 // Props:
@@ -56,6 +57,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
   const positionsRef = useRef();
   const velocitiesRef = useRef();
   const reducedMotion = useReducedMotion();
+  const { theme } = useTheme();
   const [count, setCount] = useState(() => pickResponsiveCount(particleCount));
 
   // FPS monitor for auto-throttle
@@ -93,10 +95,11 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     positionsRef.current = positions;
     velocitiesRef.current = velocities;
 
-    // Teal color palette for cube animation
-    const colorA = new THREE.Color('#06b6d4'); // main teal
-    const colorB = new THREE.Color('#22d3ee'); // lighter teal for highlights
-    const colorC = new THREE.Color('#0891b2'); // darker teal for depth
+    // Theme-aware color palette for cube animation
+    const isDark = theme === 'dark';
+    const colorA = new THREE.Color(isDark ? '#00d1ff' : '#004aad'); // bright cyan (dark) / deep blue (light)
+    const colorB = new THREE.Color(isDark ? '#5de0e6' : '#00d1ff'); // light aqua (dark) / bright cyan (light)
+    const colorC = new THREE.Color(isDark ? '#004aad' : '#5de0e6'); // deep blue (dark) / light aqua (light)
     const colorW = new THREE.Color('#ffffff');
 
     for (let i = 0; i < particleTotal; i++) {
@@ -162,12 +165,12 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // Halo layer for bloom-like feel with teal glow
+    // Halo layer for bloom-like feel with theme-aware glow
     const haloMaterial = new THREE.PointsMaterial({
       size: 10, // Increased halo size
-      color: new THREE.Color('#22d3ee'), // Lighter teal for bloom effect
+      color: new THREE.Color(isDark ? '#5de0e6' : '#00d1ff'), // Theme-aware glow color
       transparent: true,
-      opacity: 0.2, // Increased opacity for better teal glow
+      opacity: 0.2, // Increased opacity for better glow
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
@@ -181,7 +184,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     requestAnimationFrame(() => (renderer.domElement.style.opacity = '1'));
 
     return true;
-  }, [count, intensity]);
+  }, [count, intensity, theme]);
 
   const cleanupThree = useCallback(() => {
     cancelAnimationFrame(rafRef.current);
@@ -296,7 +299,10 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
     if (reducedMotion || !supportsWebGL()) {
       const el = containerRef.current;
       if (el) {
-        el.style.background = 'radial-gradient(900px 400px at 50% 35%, rgba(6,182,212,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(34,211,238,0.10), transparent)';
+        const isDark = theme === 'dark';
+        el.style.background = isDark 
+          ? 'radial-gradient(900px 400px at 50% 35%, rgba(0,209,255,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(93,224,230,0.10), transparent)'
+          : 'radial-gradient(900px 400px at 50% 35%, rgba(0,74,173,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(0,209,255,0.10), transparent)';
         el.style.opacity = '0';
         el.style.transition = 'opacity 1200ms ease-out';
         requestAnimationFrame(() => (el.style.opacity = '1'));
@@ -329,7 +335,7 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       window.removeEventListener('resize', onResize);
       cleanupThree();
     };
-  }, [animate, cleanupThree, onPointerMove, onResize, reducedMotion, setupThree]);
+  }, [animate, cleanupThree, onPointerMove, onResize, reducedMotion, setupThree, theme]);
 
   // Re-evaluate particle count on resize breakpoint changes
   useEffect(() => {

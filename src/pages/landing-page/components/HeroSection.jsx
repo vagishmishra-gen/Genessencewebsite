@@ -52,8 +52,8 @@ const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Background Layers */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/20 via-background to-teal-400/10" />
-        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-teal-500/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/10" />
+        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-primary/30 to-transparent rounded-full blur-3xl" />
       </div>
       {/* WebGL Particles */}
       <HeroParticles intensity={1} />
@@ -73,7 +73,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               Fuel Your Growth With{' '}
-              <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 Genessence
               </span>
             </motion.h1>
@@ -85,7 +85,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               Transform Traditional Operations Into Intelligent Systems That Deliver{' '}
-              <span className="text-teal-500 font-semibold">Proven ROI</span>
+              <span className="text-primary font-semibold">Proven ROI</span>
             </motion.p>
           </div>
 
@@ -94,7 +94,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex items-center justify-center space-x-2 text-teal-400"
+            className="flex items-center justify-center space-x-2 text-secondary"
           >
             <Icon name="TrendingUp" size={24} />
             <span className="text-2xl font-bold">
@@ -118,7 +118,7 @@ const HeroSection = () => {
               variant="outline"
               size="xl"
               onClick={scrollToResults}
-              className="border-teal-500/30 text-teal-500 hover:bg-teal-500/10 text-lg px-8 py-4"
+              className="border-primary/30 text-primary hover:bg-primary/10 text-lg px-8 py-4"
               iconName="PlayCircle"
               iconPosition="left"
               iconSize={20}

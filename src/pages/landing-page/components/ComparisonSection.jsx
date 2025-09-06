@@ -54,7 +54,7 @@ const ComparisonSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Why Choose{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Genessence
             </span>
           </h2>
@@ -72,8 +72,8 @@ const ComparisonSection = () => {
             <div className="p-6 border-l border-border">
               <h3 className="font-semibold text-muted-foreground">Typical Agencies</h3>
             </div>
-            <div className="p-6 border-l border-border bg-teal-500/5">
-              <h3 className="font-semibold text-teal-500">Genessence</h3>
+            <div className="p-6 border-l border-border bg-primary/5">
+              <h3 className="font-semibold text-primary">Genessence</h3>
             </div>
             <div className="p-6 border-l border-border">
               <h3 className="font-semibold text-secondary">Our Advantage</h3>
@@ -99,9 +99,9 @@ const ComparisonSection = () => {
                   {row?.typical}
                 </div>
               </div>
-              <div className="p-6 border-l border-border bg-teal-500/5">
-                <div className="flex items-center text-teal-500 font-medium">
-                  <Icon name="Check" size={16} className="text-teal-500 mr-2" />
+              <div className="p-6 border-l border-border bg-primary/5">
+                <div className="flex items-center text-primary font-medium">
+                  <Icon name="Check" size={16} className="text-primary mr-2" />
                   {row?.genessence}
                 </div>
               </div>
@@ -123,7 +123,7 @@ const ComparisonSection = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Experience the Genessence Difference
             </h3>
@@ -134,7 +134,7 @@ const ComparisonSection = () => {
             {/* Key Benefits */}
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               <div className="flex items-center justify-center space-x-2">
-                <Icon name="Shield" size={20} className="text-teal-500" />
+                <Icon name="Shield" size={20} className="text-primary" />
                 <span className="text-foreground font-medium">95% Success Rate</span>
               </div>
               <div className="flex items-center justify-center space-x-2">

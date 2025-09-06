@@ -113,7 +113,7 @@ const TeamSection = () => {
         >
           <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
             Meet Our{' '}
-            <span className="bg-gradient-to-r from-teal-500 to-teal-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Expert Team
             </span>
           </h2>
@@ -135,10 +135,10 @@ const TeamSection = () => {
               onMouseEnter={() => setHoveredMember(member?.id)}
               onMouseLeave={() => setHoveredMember(null)}
             >
-              <div className="bg-card border border-border rounded-2xl p-8 transition-all duration-300 hover:border-teal-500/30 hover:shadow-xl">
+              <div className="bg-card border border-border rounded-2xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
                 {/* Profile Image */}
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-teal-500/20">
+                  <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-primary/20">
                     <Image
                       src={member?.image}
                       alt={member?.name}
@@ -155,7 +155,7 @@ const TeamSection = () => {
                     <div className="flex space-x-2">
                       <a
                         href={member?.linkedin}
-                        className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center hover:bg-teal-500/80 transition-colors"
+                        className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors"
                       >
                         <Icon name="Linkedin" size={16} color="white" />
                       </a>
@@ -174,7 +174,7 @@ const TeamSection = () => {
                   <h3 className="text-xl font-semibold text-foreground mb-1">
                     {member?.name}
                   </h3>
-                  <p className="text-teal-500 font-medium mb-2">
+                  <p className="text-primary font-medium mb-2">
                     {member?.role}
                   </p>
                   <p className="text-sm text-muted-foreground mb-3">
@@ -198,7 +198,7 @@ const TeamSection = () => {
                       <ul className="space-y-1 text-xs text-muted-foreground mb-4">
                         {member?.credentials?.slice(0, 3)?.map((credential, idx) => (
                           <li key={idx} className="flex items-start">
-                            <Icon name="Check" size={12} className="text-teal-500 mr-1 mt-0.5 flex-shrink-0" />
+                            <Icon name="Check" size={12} className="text-primary mr-1 mt-0.5 flex-shrink-0" />
                             {credential}
                           </li>
                         ))}
@@ -237,7 +237,7 @@ const TeamSection = () => {
           ]?.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center mx-auto mb-3">
-                <Icon name={stat?.icon} size={24} className="text-teal-500" />
+                <Icon name={stat?.icon} size={24} className="text-primary" />
               </div>
               <div className="text-2xl font-bold text-foreground mb-1">
                 {stat?.number}
@@ -257,7 +257,7 @@ const TeamSection = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-teal-500/20">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 border border-primary/20">
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Ready to Work with Industry Leaders?
             </h3>

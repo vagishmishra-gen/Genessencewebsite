@@ -3,6 +3,7 @@ import Icon from '../AppIcon';
 import Button from './Button';
 import SlidingCTA from './SlidingCTA';
 import TealDot from './TealDot';
+import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,7 +85,7 @@ const Header = () => {
                 onClick={() => scrollToSection('hero')}
                 className="flex items-center space-x-3 group transition-fast hover:opacity-80"
               >
-                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-teal-400 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                   <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
                 </div>
                 <span className="text-2xl font-headline text-foreground">
@@ -102,13 +103,13 @@ const Header = () => {
                   onClick={() => scrollToSection(item?.anchor)}
                   className={`relative px-4 py-2 text-sm font-medium transition-fast group ${
                     activeSection === item?.anchor
-                      ? 'text-teal-500' :'text-muted-foreground hover:text-foreground'
+                      ? 'text-primary' :'text-muted-foreground hover:text-foreground'
                   }`}
                   title={item?.description}
                 >
                   {item?.label}
                   {activeSection === item?.anchor && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-500 rounded-full" />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded-full" />
                   )}
                 </button>
               ))}
@@ -116,11 +117,12 @@ const Header = () => {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center space-x-4">
+              <ThemeToggle />
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => scrollToSection('lead-capture')}
-                className="border-teal-500/20 text-teal-500 hover:bg-teal-500/10"
+                className="border-primary/20 text-primary hover:text-secondary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
               >
                 Get Quote
               </Button>
@@ -154,7 +156,7 @@ const Header = () => {
           <div className="relative bg-card border-r border-border w-full max-w-sm h-full shadow-xl">
             <div className="flex items-center justify-between p-6 border-b border-border">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-400 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                   <Icon name="Zap" size={20} color="white" strokeWidth={2.5} />
                 </div>
                 <span className="text-xl font-headline text-foreground">
@@ -176,7 +178,7 @@ const Header = () => {
                   onClick={() => scrollToSection(item?.anchor)}
                   className={`w-full flex items-center justify-between p-4 rounded-lg text-left transition-fast ${
                     activeSection === item?.anchor
-                      ? 'bg-teal-500/10 text-teal-500 border border-teal-500/20' :'text-muted-foreground hover:text-foreground hover:bg-muted/10'
+                      ? 'bg-primary/10 text-primary border border-primary/20' :'text-muted-foreground hover:text-foreground hover:bg-muted/10'
                   }`}
                 >
                   <div>
@@ -192,11 +194,14 @@ const Header = () => {
 
             <div className="absolute bottom-0 left-0 right-0 p-6 border-t border-border bg-card/50">
               <div className="space-y-3">
+                <div className="flex items-center justify-center">
+                  <ThemeToggle />
+                </div>
                 <Button
                   variant="outline"
                   fullWidth
                   onClick={() => scrollToSection('lead-capture')}
-                  className="border-teal-500/20 text-teal-500 hover:bg-teal-500/10"
+                  className="border-primary/20 text-primary hover:text-secondary hover:bg-primary/10 hover:border-primary/30 transition-all duration-300"
                 >
                   Get Quote
                 </Button>
