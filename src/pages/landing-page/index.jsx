@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
 import Header from '../../components/ui/Header';
 import ScrollProgress from '../../components/ui/ScrollProgress';
 import FloatingCTA from '../../components/ui/FloatingCTA';
@@ -16,6 +17,8 @@ import LeadCaptureSection from './components/LeadCaptureSection';
 import FooterSection from './components/FooterSection';
 
 const LandingPage = () => {
+  const location = useLocation();
+
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -25,6 +28,20 @@ const LandingPage = () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
+
+  // Handle hash navigation when coming from other pages
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.substring(1); // Remove the #
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Small delay to ensure page is fully loaded
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+  }, [location.hash, location.pathname]);
 
   return (
     <>

@@ -1,0 +1,132 @@
+export const benefits = [
+  { title: "Competitive Compensation", description: "Industry-leading salaries with performance bonuses and equity options", icon: "DollarSign" },
+  { title: "Flexible Work Arrangements", description: "Remote-first culture with hybrid options and flexible hours", icon: "Clock" },
+  { title: "Learning & Development", description: "₹50,000 annual learning budget, conferences, and skill programs", icon: "BookOpen" },
+  { title: "Health & Wellness", description: "Comprehensive insurance, mental health support, wellness programs", icon: "Heart" },
+  { title: "Cutting-Edge Technology", description: "Work with latest AI/ML tools, cloud platforms, modern stacks", icon: "Cpu" },
+  { title: "Innovation Time", description: "20% time for personal projects and R&D initiatives", icon: "Lightbulb" },
+  { title: "Team Building & Culture", description: "Outings, hackathons, collaborative workspace in Noida", icon: "Users" },
+  { title: "Career Growth", description: "Clear advancement paths, mentorship, leadership opportunities", icon: "TrendingUp" },
+];
+
+export const jobOpenings = [
+  {
+    id: 1,
+    title: "Senior AI Engineer",
+    department: "Engineering",
+    location: "Noida, UP / Remote / Hybrid",
+    type: "Full-time",
+    experience: "3-5 years",
+    salaryRange: "₹12-20 LPA",
+    description: "Lead AI implementation projects and develop automation solutions.",
+    requirements: [
+      "CS/AI degree",
+      "3+ years ML/AI",
+      "Python, TensorFlow/PyTorch",
+      "AWS/Azure/GCP",
+      "REST APIs, microservices",
+      "Problem-solving, communication",
+      "MLOps & deployment"
+    ],
+    responsibilities: [
+      "Design and implement AI solutions",
+      "Collaborate cross-functionally",
+      "Mentor juniors, code reviews",
+      "Research emerging AI tech",
+      "Optimize models"
+    ],
+    skills: ["Python", "Machine Learning", "Deep Learning", "Cloud", "MLOps"],
+  },
+  {
+    id: 2,
+    title: "Data Scientist",
+    department: "Analytics",
+    location: "Noida, UP / Remote / Hybrid",
+    type: "Full-time",
+    experience: "2-4 years",
+    salaryRange: "₹10-16 LPA",
+    description: "Analyze datasets and build predictive models for insights.",
+    requirements: [
+      "MS in Data/Stats",
+      "2+ years analysis/ML",
+      "Python/R, SQL, stats",
+      "Visualization tools",
+      "Big data (Spark/Hadoop)",
+      "Analytical and presentation skills"
+    ],
+    skills: ["Python", "R", "SQL", "Statistics", "Visualization", "ML"],
+  },
+  {
+    id: 3,
+    title: "Business Development Manager",
+    department: "Sales & Marketing",
+    location: "Noida, UP / Hybrid",
+    type: "Full-time",
+    experience: "3-6 years",
+    salaryRange: "₹8-14 LPA + Incentives",
+    description: "Drive growth by identifying opportunities and building relationships.",
+    requirements: [
+      "Business/Marketing degree",
+      "3+ years B2B sales (tech preferred)",
+      "Strong communication & negotiation",
+      "CRM tools & processes",
+      "AI/automation understanding"
+    ],
+    skills: ["B2B Sales", "CRM", "Research", "Presentation"],
+  },
+  {
+    id: 4,
+    title: "AI Product Manager",
+    department: "Product",
+    location: "Noida, UP / Remote / Hybrid",
+    type: "Full-time",
+    experience: "4-7 years",
+    salaryRange: "₹15-25 LPA",
+    description: "Lead product strategy and roadmap for AI automation platform.",
+    requirements: [
+      "Engineering/Business degree",
+      "4+ years product (AI/tech preferred)",
+      "Strong AI/ML understanding",
+      "Agile methodologies",
+      "Analytical and strategic skills"
+    ],
+    skills: ["Product Strategy", "AI/ML", "Agile", "Market Analysis"],
+  },
+  {
+    id: 5,
+    title: "Junior Software Developer",
+    department: "Engineering",
+    location: "Noida, UP / Hybrid",
+    type: "Full-time",
+    experience: "0-2 years",
+    salaryRange: "₹6-10 LPA",
+    description: "Build and maintain AI-powered applications and integrations.",
+    requirements: [
+      "CS/IT degree",
+      "0-2 years development",
+      "Python/JavaScript",
+      "React/Node.js",
+      "DBs and APIs basics",
+      "Eagerness to learn AI/ML"
+    ],
+    skills: ["Python", "JavaScript", "React", "Node.js", "Databases"],
+  },
+  {
+    id: 6,
+    title: "DevOps Engineer",
+    department: "Engineering",
+    location: "Noida, UP / Remote / Hybrid",
+    type: "Full-time",
+    experience: "2-5 years",
+    salaryRange: "₹10-18 LPA",
+    description: "Manage cloud infrastructure, CI/CD, and deployments for AI/ML.",
+    requirements: [
+      "CS/IT degree",
+      "2+ years DevOps",
+      "AWS/Azure/GCP, Docker, K8s",
+      "Jenkins/GitHub Actions",
+      "Terraform/CloudFormation"
+    ],
+    skills: ["Cloud", "Docker", "Kubernetes", "CI/CD", "IaC"],
+  },
+];

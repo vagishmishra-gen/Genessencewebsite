@@ -1,0 +1,8 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#fefce8"/>
+  <rect x="50" y="50" width="300" height="200" fill="#fef3c7" stroke="#eab308" stroke-width="2"/>
+  <text x="200" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#a16207">Resilient Systems</text>
+  <text x="200" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ca8a04">Technical Insights</text>
+  <circle cx="200" cy="180" r="20" fill="#eab308"/>
+  <text x="200" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">⚡</text>
+</svg>

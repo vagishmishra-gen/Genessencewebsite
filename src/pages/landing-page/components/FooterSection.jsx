@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 
 const FooterSection = () => {
@@ -16,7 +17,7 @@ const FooterSection = () => {
       { name: 'About Us', href: '#team' },
       { name: 'Our Process', href: '#process' },
       { name: 'Success Stories', href: '#testimonials' },
-      { name: 'Case Studies', href: '#results' }
+      { name: 'Careers', href: '/careers' }
     ],
     resources: [
       { name: 'AI Assessment', href: '#lead-capture' },
@@ -153,12 +154,21 @@ const FooterSection = () => {
                 <ul className="space-y-3">
                   {footerLinks?.company?.map((link) => (
                     <li key={link?.name}>
-                      <button
-                        onClick={() => scrollToSection(link?.href)}
-                        className="text-muted-foreground hover:text-primary transition-colors text-left"
-                      >
-                        {link?.name}
-                      </button>
+                      {link?.href?.startsWith('/') ? (
+                        <Link
+                          to={link?.href}
+                          className="text-muted-foreground hover:text-primary transition-colors text-left"
+                        >
+                          {link?.name}
+                        </Link>
+                      ) : (
+                        <button
+                          onClick={() => scrollToSection(link?.href)}
+                          className="text-muted-foreground hover:text-primary transition-colors text-left"
+                        >
+                          {link?.name}
+                        </button>
+                      )}
                     </li>
                   ))}
                 </ul>
