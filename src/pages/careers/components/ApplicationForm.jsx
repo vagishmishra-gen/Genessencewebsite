@@ -56,6 +56,7 @@ const ApplicationForm = ({ positions = [] }) => {
     try {
       const templateParams = {
         to_email: 'vagish.mishra@genessence.ai',
+        from_email: 'tech@genessence.com',
         applicant_name: formData.fullName,
         position: formData.selectedPosition,
         email: formData.email,

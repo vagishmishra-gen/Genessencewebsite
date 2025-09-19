@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
 
 const InsightCard = ({ insight, index }) => {
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -81,15 +83,20 @@ const InsightCard = ({ insight, index }) => {
         </div>
 
         {/* Action Button */}
-        <Button
+        <Link
+          to={`/insights/${insight.id}`}
           className="w-full"
-          variant="ghost"
-          iconName="ArrowRight"
-          iconPosition="right"
-          iconSize={16}
         >
-          Read More
-        </Button>
+          <Button
+            className="w-full border-primary/30 text-primary hover:bg-primary/10"
+            variant="outline"
+            iconName="ArrowRight"
+            iconPosition="right"
+            iconSize={16}
+          >
+            Read More
+          </Button>
+        </Link>
       </div>
     </motion.div>
   );

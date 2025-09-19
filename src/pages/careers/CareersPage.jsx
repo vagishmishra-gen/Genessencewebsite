@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Header from '../../components/ui/Header';
 import Button from '../../components/ui/Button';
+import SlidingCTA from '../../components/ui/SlidingCTA';
 import Breadcrumb from '../../components/ui/Breadcrumb';
 import BenefitsSection from './components/BenefitsSection';
 import JobOpenings from './components/JobOpenings';
@@ -20,10 +21,17 @@ const CareersPage = () => {
       <section className="pt-20 pb-16 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <Breadcrumb currentPage="Careers" />
-          <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-headline-bold mb-4">Join Our AI Innovation Team</h1>
-            <p className="text-lg text-muted-foreground mb-6">Help shape the future of enterprise automation in Noida & remotely.</p>
-            <Button size="lg" onClick={scrollToOpenings}>Explore Open Positions</Button>
+          <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:0.6}} className="text-center max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline-bold text-foreground leading-tight mb-6">
+              Join Our AI Innovation{' '}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Team
+              </span>
+            </h1>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Help shape the future of enterprise automation in Noida & remotely.
+            </p>
+            <SlidingCTA label="Explore Open Positions" onClick={scrollToOpenings} size="lg" />
           </motion.div>
         </div>
       </section>

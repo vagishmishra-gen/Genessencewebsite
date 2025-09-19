@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
+import Logo from '../../../components/ui/Logo';
 
 const FooterSection = () => {
   const currentYear = new Date()?.getFullYear();
@@ -67,13 +68,8 @@ const FooterSection = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                    <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
-                  </div>
-                  <span className="text-2xl font-headline text-foreground">
-                    Genessence
-                  </span>
+                <div className="mb-6">
+                  <Logo size="lg" showText={true} />
                 </div>
                 
                 <p className="text-muted-foreground mb-6 leading-relaxed">

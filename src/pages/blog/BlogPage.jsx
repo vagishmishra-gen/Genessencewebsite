@@ -39,10 +39,13 @@ const BlogPage = () => {
       <section className="relative py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-6">
           <Breadcrumb currentPage="Blog" />
-          <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            AI Insights & Industry Updates
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline-bold text-foreground leading-tight">
+            AI Insights &{' '}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Industry Updates
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Practical guidance, case studies, and technical deep-dives from our team.
           </p>
           <div className="max-w-2xl mx-auto">
@@ -71,7 +74,7 @@ const BlogPage = () => {
               initial="hidden"
               animate="show"
               variants={{ hidden: {opacity: 0}, show: {opacity: 1, transition: {staggerChildren: 0.05}} }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
             >
               {filtered.map((p) => (
                 <motion.div key={p.id} variants={{ hidden:{opacity:0, y:10}, show:{opacity:1, y:0} }}>

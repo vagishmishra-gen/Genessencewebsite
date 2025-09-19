@@ -5,6 +5,7 @@ import ErrorBoundary from "components/ErrorBoundary";
 import NotFound from "pages/NotFound";
 import LandingPage from './pages/landing-page';
 import CaseStudiesPage from './pages/case-studies/CaseStudiesPage';
+import InsightPage from './pages/case-studies/InsightPage';
 import BlogPage from './pages/blog/BlogPage';
 import BlogPostPage from './pages/blog/BlogPostPage';
 import CareersPage from './pages/careers/CareersPage';
@@ -19,6 +20,7 @@ const Routes = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/landing-page" element={<LandingPage />} />
         <Route path="/case-studies" element={<CaseStudiesPage />} />
+        <Route path="/insights/:id" element={<InsightPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/careers" element={<CareersPage />} />

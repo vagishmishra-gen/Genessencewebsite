@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
 import Button from '../../components/ui/Button';
+import SlidingCTA from '../../components/ui/SlidingCTA';
 import Breadcrumb from '../../components/ui/Breadcrumb';
 import CaseStudyCard from './components/CaseStudyCard';
 import InsightCard from './components/InsightCard';
@@ -101,16 +102,7 @@ const CaseStudiesPage = () => {
                 achieving remarkable results and measurable ROI.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  onClick={() => scrollToSection('case-studies')}
-                  variant="default"
-                  size="lg"
-                  iconName="ArrowDown"
-                  iconPosition="right"
-                  iconSize={20}
-                >
-                  View Case Studies
-                </Button>
+                <SlidingCTA label="View Case Studies" onClick={() => scrollToSection('case-studies')} size="lg" />
                 <Button
                   onClick={() => scrollToSection('insights')}
                   variant="outline"
@@ -118,6 +110,7 @@ const CaseStudiesPage = () => {
                   iconName="BookOpen"
                   iconPosition="left"
                   iconSize={20}
+                  className="border-primary/30 text-primary hover:bg-primary/10"
                 >
                   Read Insights
                 </Button>
@@ -270,16 +263,7 @@ const CaseStudiesPage = () => {
                 and deliver measurable results like our featured case studies.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Button
-                  onClick={() => window.location.href = '/#lead-capture'}
-                  variant="default"
-                  size="lg"
-                  iconName="ArrowRight"
-                  iconPosition="right"
-                  iconSize={20}
-                >
-                  Start Your Project
-                </Button>
+                <SlidingCTA label="Start Your Project" onClick={() => window.location.href = '/#lead-capture'} size="lg" />
                 <Button
                   onClick={() => window.location.href = '/#contact'}
                   variant="outline"
@@ -287,6 +271,7 @@ const CaseStudiesPage = () => {
                   iconName="MessageCircle"
                   iconPosition="left"
                   iconSize={20}
+                  className="border-primary/30 text-primary hover:bg-primary/10"
                 >
                   Contact Us
                 </Button>

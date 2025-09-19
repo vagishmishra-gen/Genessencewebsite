@@ -39,10 +39,10 @@ const pickResponsiveCount = (explicitCount) => {
   if (typeof explicitCount === 'number') return explicitCount;
   const w = typeof window !== 'undefined' ? window.innerWidth : 1920;
   if (w < 360) return 0; // disable on very small screens
-  if (w < 640) return 300; // sm
-  if (w < 768) return 500; // md
-  if (w < 1024) return 800; // lg-ish tablets
-  return 1500; // desktop
+  if (w < 640) return 50; // sm - reduced by 250
+  if (w < 768) return 250; // md - reduced by 250
+  if (w < 1024) return 500; // lg-ish tablets - reduced by 250
+  return 1000; // desktop - reduced by 250
 };
 
 const HeroParticles = ({ intensity = 1, particleCount }) => {
@@ -124,6 +124,22 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       colors[i3 + 2] = c.b;
     }
 
+    // Remove stray central particle
+    let minDist = Infinity;
+    let minIndex = 0;
+    for (let i = 0; i < particleTotal; i++) {
+      const x = positions[i*3], y = positions[i*3+1], z = positions[i*3+2];
+      const dist = x*x + y*y + z*z;
+      if (dist < minDist) {
+        minDist = dist;
+        minIndex = i;
+      }
+    }
+    // Move that particle far off-camera
+    positions[minIndex*3] = 9999;
+    positions[minIndex*3+1] = 9999;
+    positions[minIndex*3+2] = 9999;
+
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
@@ -136,7 +152,11 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       void main() {
         vColor = color;
         vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = 4.5 * (300.0 / -mvPosition.z); // larger for better visibility
+        // Compute base size
+        float size = 12.0 * (300.0 / -mvPosition.z);
+        // Cap size so no point exceeds 12.0
+        float cappedSize = min(size, 12.0);
+        gl_PointSize = cappedSize;
         gl_Position = projectionMatrix * mvPosition;
       }
     `;
@@ -144,11 +164,14 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
       precision mediump float;
       varying vec3 vColor;
       void main() {
+        // Discard any particle whose color is almost pure white
+        if (vColor.r > 0.95 && vColor.g > 0.95 && vColor.b > 0.95) {
+          discard;
+        }
         vec2 uv = gl_PointCoord - vec2(0.5);
         float d = length(uv);
-        float alpha = smoothstep(0.5, 0.0, d); // soft edge
-        vec3 col = vColor;
-        gl_FragColor = vec4(col, alpha * 1.0); // Full opacity for better visibility
+        float alpha = smoothstep(0.5, 0.0, d);
+        gl_FragColor = vec4(vColor, alpha * 1.8);
       }
     `;
 
@@ -167,10 +190,10 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
 
     // Halo layer for bloom-like feel with theme-aware glow
     const haloMaterial = new THREE.PointsMaterial({
-      size: 10, // Increased halo size
+      size: 15, // Much larger size for better visibility
       color: new THREE.Color(isDark ? '#5de0e6' : '#00d1ff'), // Theme-aware glow color
       transparent: true,
-      opacity: 0.2, // Increased opacity for better glow
+      opacity: 0.25, // Increased opacity for better visibility
       blending: THREE.AdditiveBlending,
       depthWrite: false,
     });
@@ -297,16 +320,6 @@ const HeroParticles = ({ intensity = 1, particleCount }) => {
   useEffect(() => {
     // Fallback or respect reduced motion
     if (reducedMotion || !supportsWebGL()) {
-      const el = containerRef.current;
-      if (el) {
-        const isDark = theme === 'dark';
-        el.style.background = isDark 
-          ? 'radial-gradient(900px 400px at 50% 35%, rgba(0,209,255,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(93,224,230,0.10), transparent)'
-          : 'radial-gradient(900px 400px at 50% 35%, rgba(0,74,173,0.15), transparent), radial-gradient(700px 320px at 70% 60%, rgba(0,209,255,0.10), transparent)';
-        el.style.opacity = '0';
-        el.style.transition = 'opacity 1200ms ease-out';
-        requestAnimationFrame(() => (el.style.opacity = '1'));
-      }
       return;
     }
 

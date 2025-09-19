@@ -100,7 +100,7 @@ const CaseStudyCard = ({ caseStudy, index }) => {
         <Button
           onClick={handleDownload}
           disabled={isDownloading}
-          className="w-full"
+          className="w-full border-primary/30 text-primary hover:bg-primary/10"
           variant="outline"
           iconName={isDownloading ? "Loader2" : "Download"}
           iconPosition="left"

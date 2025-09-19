@@ -5,6 +5,7 @@ import Button from './Button';
 import SlidingCTA from './SlidingCTA';
 import TealDot from './TealDot';
 import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
 import useSmartNavigation from '../../hooks/useSmartNavigation';
 
 const Header = () => {
@@ -96,35 +97,29 @@ const Header = () => {
     <>
       <header 
         className={`sticky top-0 z-navigation transition-all duration-300 ${
-          isScrolled ? 'glassmorphism border-b border-border' : 'bg-transparent'
+          isScrolled ? 'bg-white/95 dark:glassmorphism border-b border-border' : 'bg-transparent'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center h-20">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <button
+            <div className="flex-shrink-0 -ml-12 lg:-ml-16">
+              <Logo 
+                size="md" 
                 onClick={handleLogoClick}
-                className="flex items-center space-x-3 group transition-fast hover:opacity-80"
-              >
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <Icon name="Zap" size={24} color="white" strokeWidth={2.5} />
-                </div>
-                <span className="text-2xl font-headline text-foreground">
-                  Genessence
-                </span>
-                <TealDot className="ml-2" animated />
-              </button>
+                animated={false}
+                className="hover:opacity-80"
+              />
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
               {navigationItems?.map((item) => (
                 item.type === 'page' ? (
                   <Link
                     key={item?.path}
                     to={item?.path}
-                    className={`relative px-4 py-2 text-sm font-medium transition-fast group ${
+                    className={`relative px-4 py-2 text-sm font-medium whitespace-nowrap transition-fast group ${
                       getActiveState(item)
                         ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                     }`}
@@ -139,7 +134,7 @@ const Header = () => {
                   <button
                     key={item?.id}
                     onClick={() => handleNavigation(item)}
-                    className={`relative px-4 py-2 text-sm font-medium transition-fast group ${
+                    className={`relative px-4 py-2 text-sm font-medium whitespace-nowrap transition-fast group ${
                       getActiveState(item)
                         ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                     }`}
@@ -155,10 +150,10 @@ const Header = () => {
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-6">
               <ThemeToggle />
-              <div className="hidden xl:block">
-                <SlidingCTA label="Start Project" onClick={handleStartProject} size="md" />
+              <div className="hidden xl:block min-w-48">
+                <SlidingCTA label="Start Project" onClick={handleStartProject} size="md" className="w-full" />
               </div>
             </div>
 
@@ -186,14 +181,7 @@ const Header = () => {
           />
           <div className="relative bg-card border-r border-border w-full max-w-sm h-full shadow-xl">
             <div className="flex items-center justify-between p-6 border-b border-border">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <Icon name="Zap" size={20} color="white" strokeWidth={2.5} />
-                </div>
-                <span className="text-xl font-headline text-foreground">
-                  Genessence
-                </span>
-              </div>
+              <Logo size="sm" showText={true} />
               <button
                 onClick={toggleMobileMenu}
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/10 transition-fast"

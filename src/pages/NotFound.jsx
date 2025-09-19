@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/ui/Button';
 import Icon from 'components/AppIcon';
+import Logo from 'components/ui/Logo';
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -13,6 +14,9 @@ const NotFound = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4">
       <div className="text-center max-w-md">
+        <div className="flex justify-center mb-8">
+          <Logo size="xl" showText={true} />
+        </div>
         <div className="flex justify-center mb-6">
           <div className="relative">
             <h1 className="text-9xl font-bold text-primary opacity-20">404</h1>
