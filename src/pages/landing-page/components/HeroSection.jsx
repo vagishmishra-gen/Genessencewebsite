@@ -68,7 +68,7 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="space-y-4">
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-headline-bold text-foreground leading-tight"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-headline-bold text-foreground leading-tight break-words px-2 max-w-[90vw] mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -80,7 +80,7 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed break-words px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

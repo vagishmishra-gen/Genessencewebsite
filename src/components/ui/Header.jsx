@@ -103,9 +103,9 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center h-20">
             {/* Logo */}
-            <div className="flex-shrink-0 -ml-12 lg:-ml-16">
+            <div className="flex-shrink-0 ml-0 lg:-ml-16">
               <Logo 
-                size="md" 
+                size="sm" 
                 onClick={handleLogoClick}
                 animated={false}
                 className="hover:opacity-80"
@@ -157,6 +157,9 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Spacer to push menu button to the right on mobile */}
+            <div className="flex-1 lg:hidden" />
+
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMobileMenu}
@@ -179,7 +182,7 @@ const Header = () => {
             className="absolute inset-0 bg-background/80 backdrop-blur-md"
             onClick={toggleMobileMenu}
           />
-          <div className="relative bg-card border-r border-border w-full max-w-sm h-full shadow-xl">
+          <div className="relative bg-card border-r border-border w-full max-w-sm h-full shadow-xl flex flex-col">
             <div className="flex items-center justify-between p-6 border-b border-border">
               <Logo size="sm" showText={true} />
               <button
@@ -190,7 +193,7 @@ const Header = () => {
               </button>
             </div>
             
-            <nav className="p-6 space-y-2">
+            <nav className="p-6 space-y-2 overflow-y-auto pb-40 flex-1">
               {navigationItems?.map((item) => (
                 item.type === 'page' ? (
                   <Link

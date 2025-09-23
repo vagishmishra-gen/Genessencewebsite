@@ -63,19 +63,20 @@ const ComparisonSection = () => {
           </p>
         </motion.div>
 
-        <div className="bg-card border border-border rounded-2xl overflow-hidden">
+        <div className="bg-card border border-border rounded-2xl overflow-x-auto">
+          <div className="min-w-[720px]">
           {/* Table Header */}
-          <div className="grid grid-cols-4 bg-muted/20 border-b border-border">
-            <div className="p-6">
+          <div className="grid grid-cols-4 bg-muted/20 border-b border-border text-sm md:text-base">
+            <div className="p-4 md:p-6">
               <h3 className="font-semibold text-foreground">Comparison Factor</h3>
             </div>
-            <div className="p-6 border-l border-border">
+            <div className="p-4 md:p-6 border-l border-border">
               <h3 className="font-semibold text-muted-foreground">Typical Agencies</h3>
             </div>
-            <div className="p-6 border-l border-border bg-primary/5">
+            <div className="p-4 md:p-6 border-l border-border bg-primary/5">
               <h3 className="font-semibold text-primary">Genessence</h3>
             </div>
-            <div className="p-6 border-l border-border">
+            <div className="p-4 md:p-6 border-l border-border">
               <h3 className="font-semibold text-secondary">Our Advantage</h3>
             </div>
           </div>
@@ -88,24 +89,24 @@ const ComparisonSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="grid grid-cols-4 border-b border-border last:border-b-0 hover:bg-muted/10 transition-colors"
+              className="grid grid-cols-4 border-b border-border last:border-b-0 hover:bg-muted/10 transition-colors text-sm md:text-base"
             >
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <div className="font-medium text-foreground">{row?.category}</div>
               </div>
-              <div className="p-6 border-l border-border">
+              <div className="p-4 md:p-6 border-l border-border">
                 <div className="flex items-center text-muted-foreground">
                   <Icon name="X" size={16} className="text-error mr-2" />
                   {row?.typical}
                 </div>
               </div>
-              <div className="p-6 border-l border-border bg-primary/5">
+              <div className="p-4 md:p-6 border-l border-border bg-primary/5">
                 <div className="flex items-center text-primary font-medium">
                   <Icon name="Check" size={16} className="text-primary mr-2" />
                   {row?.genessence}
                 </div>
               </div>
-              <div className="p-6 border-l border-border">
+              <div className="p-4 md:p-6 border-l border-border">
                 <div className="flex items-center text-secondary font-medium">
                   <Icon name="TrendingUp" size={16} className="text-secondary mr-2" />
                   {row?.advantage}
@@ -113,6 +114,7 @@ const ComparisonSection = () => {
               </div>
             </motion.div>
           ))}
+          </div>
         </div>
 
         {/* Bottom CTA */}
