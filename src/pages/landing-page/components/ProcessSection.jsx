@@ -105,7 +105,7 @@ const ProcessSection = () => {
         </div>
 
         {/* Process Steps */}
-        <div className="grid md:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16 items-stretch">
           {processSteps?.map((step, index) => (
             <motion.div
               key={index}
@@ -113,7 +113,7 @@ const ProcessSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative cursor-pointer transition-all duration-300 ${
+              className={`relative cursor-pointer transition-all duration-300 h-full ${
                 activeStep === index ? 'scale-105' : 'hover:scale-102'
               }`}
               onClick={() => setActiveStep(index)}
@@ -123,7 +123,7 @@ const ProcessSection = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent z-0" />
               )}
 
-              <div className={`relative bg-card border rounded-2xl p-8 z-10 transition-all ${
+              <div className={`relative bg-card border rounded-2xl p-8 z-10 transition-all h-full flex flex-col ${
                 activeStep === index 
                   ? 'border-primary shadow-lg' 
                   : 'border-border hover:border-primary/30'
@@ -156,7 +156,7 @@ const ProcessSection = () => {
                 </p>
 
                 {/* Progress Indicator */}
-                <div className="w-full bg-muted/30 rounded-full h-1">
+                <div className="w-full bg-muted/30 rounded-full h-1 mt-auto">
                   <motion.div
                     className="h-1 bg-gradient-to-r from-primary to-secondary rounded-full"
                     initial={{ width: 0 }}

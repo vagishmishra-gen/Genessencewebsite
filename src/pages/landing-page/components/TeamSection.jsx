@@ -123,7 +123,7 @@ const TeamSection = () => {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-4 gap-8 mb-16">
+        <div className="grid md:grid-cols-4 gap-8 mb-16 items-stretch">
           {teamMembers?.map((member, index) => (
             <motion.div
               key={member?.id}
@@ -131,11 +131,9 @@ const TeamSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group cursor-pointer"
-              onMouseEnter={() => setHoveredMember(member?.id)}
-              onMouseLeave={() => setHoveredMember(null)}
+              className="relative h-full"
             >
-              <div className="bg-card border border-border rounded-2xl p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-xl">
+              <div className="bg-card border border-border rounded-2xl p-8 h-full flex flex-col">
                 {/* Profile Image */}
                 <div className="relative mb-6">
                   <div className="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-primary/20">
@@ -146,27 +144,25 @@ const TeamSection = () => {
                     />
                   </div>
                   
-                  {/* Hover Overlay */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    initial={{ scale: 0.8 }}
-                    whileHover={{ scale: 1 }}
+                  {/* Hover Overlay removed */}
+                  <div
+                    className="hidden"
                   >
                     <div className="flex space-x-2">
                       <a
                         href={member?.linkedin}
-                        className="w-8 h-8 bg-primary rounded-full flex items-center justify-center hover:bg-primary/80 transition-colors"
+                        className="w-8 h-8 bg-primary rounded-full flex items-center justify-center"
                       >
                         <Icon name="Linkedin" size={16} color="white" />
                       </a>
                       <a
                         href={member?.twitter}
-                        className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center hover:bg-secondary/80 transition-colors"
+                        className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center"
                       >
                         <Icon name="Twitter" size={16} color="white" />
                       </a>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Member Info */}
@@ -186,11 +182,9 @@ const TeamSection = () => {
                   </div>
                 </div>
 
-                {/* Hover Details */}
-                <motion.div
-                  className="absolute inset-0 bg-card/95 backdrop-blur-sm rounded-2xl p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ y: 20 }}
-                  whileHover={{ y: 0 }}
+                {/* Hover Details removed */}
+                <div
+                  className="hidden mt-auto"
                 >
                   <div className="h-full flex flex-col justify-between">
                     <div>
@@ -215,7 +209,7 @@ const TeamSection = () => {
                       </ul>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           ))}

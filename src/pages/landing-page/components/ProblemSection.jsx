@@ -6,6 +6,7 @@ import SlidingCTA from '../../../components/ui/SlidingCTA';
 
 const ProblemSection = () => {
   const [manualHours, setManualHours] = useState(40);
+  const [hourlyRate, setHourlyRate] = useState(75);
   const [calculatedLoss, setCalculatedLoss] = useState(0);
   const [isCalculating, setIsCalculating] = useState(false);
 
@@ -34,16 +35,15 @@ const ProblemSection = () => {
     const calculateLoss = () => {
       setIsCalculating(true);
       setTimeout(() => {
-        // Average hourly cost for enterprise employees: $75
         // Weeks per year: 50 (accounting for vacation)
-        const annualLoss = manualHours * 75 * 50;
+        const annualLoss = manualHours * hourlyRate * 50;
         setCalculatedLoss(annualLoss);
         setIsCalculating(false);
       }, 500);
     };
 
     calculateLoss();
-  }, [manualHours]);
+  }, [manualHours, hourlyRate]);
 
   const scrollToSolution = () => {
     const element = document.getElementById('services');
@@ -71,72 +71,102 @@ const ProblemSection = () => {
           </p>
         </motion.div>
 
-        {/* Interactive Calculator */}
+        {/* Interactive Calculator - Progressive Flow Layout */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="bg-card border border-border rounded-2xl p-8 mb-16 max-w-4xl mx-auto"
+          className="mb-16"
         >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-headline text-foreground mb-4">
-              Calculate Your Revenue Loss
-            </h3>
-            <p className="text-muted-foreground">
-              See how much manual processes are costing your business annually
-            </p>
-          </div>
+          <div className="max-w-7xl mx-auto px-8 py-8 bg-gray-900 dark:bg-card border border-border rounded-2xl">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-white">Calculate Your Revenue Loss</h3>
+              <p className="text-gray-400 mt-2">See how much manual processes are costing your business annually</p>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Weekly hours spent on manual processes
-                </label>
-                <div className="flex items-center space-x-4">
+            {/* Progressive Flow Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {/* Step 1: Input */}
+              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5">
+                <div className="text-lg font-semibold text-white mb-2">1. Weekly Manual Hours</div>
+                <div className="flex items-center space-x-3">
                   <input
+                    aria-label="Weekly hours spent on manual processes"
                     type="range"
                     min="10"
                     max="80"
                     value={manualHours}
                     onChange={(e) => setManualHours(parseInt(e?.target?.value))}
-                    className="flex-1 h-2 bg-muted rounded-lg appearance-none cursor-pointer slider"
+                    className="flex-1 h-2 rounded-lg cursor-pointer transition-all duration-200"
+                    style={{ accentColor: '#06b6d4' }}
                   />
-                  <span className="text-2xl font-bold text-primary w-16 text-center">
+                  <motion.span
+                    key={manualHours}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-lg font-medium text-teal-400"
+                  >
                     {manualHours}h
-                  </span>
+                  </motion.span>
                 </div>
+                <div className="text-sm text-gray-400 mt-2">Adjust based on your team's current manual workload</div>
               </div>
 
-              <div className="bg-muted/20 rounded-lg p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-muted-foreground">Annual productivity loss:</span>
-                  <span className="text-2xl font-bold text-error">
-                    {isCalculating ? (
-                      <Icon name="Loader2" size={24} className="animate-spin" />
-                    ) : (
-                      `$${calculatedLoss?.toLocaleString()}`
-                    )}
-                  </span>
+              {/* Step 2: Rate */}
+              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5">
+                <div className="text-lg font-semibold text-white mb-2">2. Enterprise Cost Rate</div>
+                <div className="flex items-center space-x-3">
+                  <input
+                    aria-label="Hourly rate for enterprise employee"
+                    type="range"
+                    min="25"
+                    max="150"
+                    value={hourlyRate}
+                    onChange={(e) => setHourlyRate(parseInt(e?.target?.value))}
+                    className="flex-1 h-2 rounded-lg cursor-pointer transition-all duration-200"
+                    style={{ accentColor: '#06b6d4' }}
+                  />
+                  <motion.span
+                    key={hourlyRate}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-lg font-medium text-teal-400"
+                  >
+                    ${hourlyRate}/h
+                  </motion.span>
                 </div>
-                <div className="text-xs text-muted-foreground">
-                  Based on $75/hour average enterprise employee cost
-                </div>
+                <div className="text-sm text-gray-400 mt-2">Adjust based on your team's hourly cost</div>
               </div>
-            </div>
 
-            <div className="text-center">
-              <div className="bg-gradient-to-br from-error/20 to-error/10 rounded-full w-48 h-48 mx-auto flex items-center justify-center mb-4">
-                <div className="text-center">
-                  <Icon name="TrendingDown" size={48} className="text-error mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-error">
-                    ${Math.round(calculatedLoss / 1000)}K
-                  </div>
-                  <div className="text-sm text-muted-foreground">Lost annually</div>
+              {/* Step 3: Calculation */}
+              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5 flex flex-col">
+                <div className="text-lg font-semibold text-white mb-2">3. Annual Productivity Loss</div>
+                <div className="flex items-center justify-start space-x-2 text-3xl font-bold text-red-500">
+                  {isCalculating ? (
+                    <Icon name="Loader2" size={24} className="animate-spin inline-block" />
+                  ) : (
+                    <>
+                      <Icon name="TrendingDown" size={32} className="text-red-500" />
+                      <motion.span
+                        key={calculatedLoss}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        ${calculatedLoss?.toLocaleString()}
+                      </motion.span>
+                    </>
+                  )}
+                </div>
+                <div className="text-sm text-gray-400 mt-2">Calculated from hours × rate × 50 weeks</div>
+                <div className="mt-auto pt-4">
+                  <SlidingCTA label="See AI Solution" onClick={scrollToSolution} size="md" />
                 </div>
               </div>
-              <SlidingCTA label="See AI Solution" onClick={scrollToSolution} size="md" />
             </div>
           </div>
         </motion.div>
