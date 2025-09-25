@@ -79,18 +79,18 @@ const ProblemSection = () => {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="max-w-7xl mx-auto px-8 py-8 bg-gray-900 dark:bg-card border border-border rounded-2xl">
+          <div className="max-w-7xl mx-auto px-8 py-8 bg-card border border-border rounded-2xl">
             {/* Header */}
             <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white">Calculate Your Revenue Loss</h3>
-              <p className="text-gray-400 mt-2">See how much manual processes are costing your business annually</p>
+              <h3 className="text-3xl font-bold text-foreground">Calculate Your Revenue Loss</h3>
+              <p className="text-muted-foreground mt-2">See how much manual processes are costing your business annually</p>
             </div>
 
             {/* Progressive Flow Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
               {/* Step 1: Input */}
-              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5">
-                <div className="text-lg font-semibold text-white mb-2">1. Weekly Manual Hours</div>
+              <div className="rounded-xl bg-muted/20 border border-border p-5">
+                <div className="text-lg font-semibold text-foreground mb-2">1. Weekly Manual Hours</div>
                 <div className="flex items-center space-x-3">
                   <input
                     aria-label="Weekly hours spent on manual processes"
@@ -112,12 +112,12 @@ const ProblemSection = () => {
                     {manualHours}h
                   </motion.span>
                 </div>
-                <div className="text-sm text-gray-400 mt-2">Adjust based on your team's current manual workload</div>
+                <div className="text-sm text-muted-foreground mt-2">Adjust based on your team's current manual workload</div>
               </div>
 
               {/* Step 2: Rate */}
-              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5">
-                <div className="text-lg font-semibold text-white mb-2">2. Enterprise Cost Rate</div>
+              <div className="rounded-xl bg-muted/20 border border-border p-5">
+                <div className="text-lg font-semibold text-foreground mb-2">2. Enterprise Cost Rate</div>
                 <div className="flex items-center space-x-3">
                   <input
                     aria-label="Hourly rate for enterprise employee"
@@ -139,12 +139,12 @@ const ProblemSection = () => {
                     ${hourlyRate}/h
                   </motion.span>
                 </div>
-                <div className="text-sm text-gray-400 mt-2">Adjust based on your team's hourly cost</div>
+                <div className="text-sm text-muted-foreground mt-2">Adjust based on your team's hourly cost</div>
               </div>
 
               {/* Step 3: Calculation */}
-              <div className="rounded-xl bg-gray-800/60 dark:bg-muted/20 border border-border p-5 flex flex-col">
-                <div className="text-lg font-semibold text-white mb-2">3. Annual Productivity Loss</div>
+              <div className="rounded-xl bg-muted/20 border border-border p-5 flex flex-col">
+                <div className="text-lg font-semibold text-foreground mb-2">3. Annual Productivity Loss</div>
                 <div className="flex items-center justify-start space-x-2 text-3xl font-bold text-red-500">
                   {isCalculating ? (
                     <Icon name="Loader2" size={24} className="animate-spin inline-block" />
@@ -162,7 +162,7 @@ const ProblemSection = () => {
                     </>
                   )}
                 </div>
-                <div className="text-sm text-gray-400 mt-2">Calculated from hours × rate × 50 weeks</div>
+                <div className="text-sm text-muted-foreground mt-2">Calculated from hours × rate × 50 weeks</div>
                 <div className="mt-auto pt-4">
                   <SlidingCTA label="See AI Solution" onClick={scrollToSolution} size="md" />
                 </div>
