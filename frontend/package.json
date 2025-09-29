@@ -62,7 +62,9 @@
     "three": "^0.179.1"
   },
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
   },
   "eslintConfig": {
     "extends": [
