@@ -62,10 +62,7 @@
     "three": "^0.179.1"
   },
   "scripts": {
-    "start": "vite",
-    "start:server": "node server.js",
-    "build": "vite build --sourcemap",
-    "serve": "vite preview"
+    "dev": "vite"
   },
   "eslintConfig": {
     "extends": [
