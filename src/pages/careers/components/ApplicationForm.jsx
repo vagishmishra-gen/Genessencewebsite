@@ -38,45 +38,112 @@ const ApplicationForm = ({ positions = [] }) => {
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return 'Valid email is required';
     if (!formData.phone || !/^[+]?\d{10,15}$/.test(formData.phone)) return 'Valid phone is required';
     if (!formData.selectedPosition) return 'Please select a position';
-    if (!resume) return 'Resume is required';
+    // Resume not strictly required by server, but recommended. Keep optional if needed.
     if (formData.grade12Value === '' || isNaN(Number(formData.grade12Value))) return 'Valid Grade 12 score required';
     if (formData.collegeValue === '' || isNaN(Number(formData.collegeValue))) return 'Valid college score required';
     return '';
   };
 
-  const toBase64 = (file) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
+  // toBase64 function removed - now using direct file upload
 
   const sendApplication = async () => {
-    // NOTE: Replace placeholders with real EmailJS IDs in production
     try {
-      const templateParams = {
-        to_email: 'vagish.mishra@genessence.ai',
-        from_email: 'tech@genessence.com',
-        applicant_name: formData.fullName,
-        position: formData.selectedPosition,
-        email: formData.email,
-        phone: formData.phone,
-        experience: formData.experience,
-        education: `${formData.degreeType} ${formData.fieldOfStudy} from ${formData.collegeName}`,
-        cgpa_12th: `${formData.grade12Format}:${formData.grade12Value}`,
-        cgpa_college: `${formData.collegeFormat}:${formData.collegeValue}`,
-        current_location: formData.currentLocation,
-        message: formData.additionalComments,
+      // Client-side file validation to avoid server 400s
+      const isAllowed = (file, types, maxBytes) => file && types.includes(file.type) && file.size <= maxBytes;
+      if (resume && !isAllowed(resume, [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ], 5 * 1024 * 1024)) {
+        throw new Error('Resume must be PDF/DOC/DOCX and ≤ 5MB');
+      }
+      if (coverLetter && !isAllowed(coverLetter, [
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ], 2 * 1024 * 1024)) {
+        throw new Error('Cover Letter must be PDF/DOC/DOCX and ≤ 2MB');
+      }
+      if (portfolio && !isAllowed(portfolio, [
+        'application/pdf',
+        'application/zip',
+        'application/x-zip-compressed'
+      ], 10 * 1024 * 1024)) {
+        throw new Error('Portfolio must be ZIP/PDF and ≤ 10MB');
+      }
+
+      // Prepare form data for email API
+      const formDataToSend = new FormData();
+      formDataToSend.append('formType', 'job');
+      
+      // Add all form fields with API field mapping
+      const fieldMap = {
+        selectedPosition: 'position',
+        linkedinUrl: 'linkedIn',
       };
-      const files = {
-        resume: resume ? await toBase64(resume) : null,
-        coverLetter: coverLetter ? await toBase64(coverLetter) : null,
-        portfolio: portfolio ? await toBase64(portfolio) : null,
-      };
-      console.log('EmailJS payload preview:', { templateParams, files });
-      // await emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',templateParams,'YOUR_PUBLIC_KEY');
+
+      Object.entries(formData).forEach(([key, value]) => {
+        if (value !== '' && value !== null && value !== undefined) {
+          const apiKey = fieldMap[key] || key;
+          formDataToSend.append(apiKey, value);
+        }
+      });
+
+      // Add file attachments
+      if (resume) formDataToSend.append('resume', resume);
+      if (coverLetter) formDataToSend.append('coverLetter', coverLetter);
+      if (portfolio) formDataToSend.append('portfolio', portfolio);
+
+      // Debug: log what we are sending from the frontend
+      try {
+        const preview = {};
+        formDataToSend.forEach((v, k) => {
+          if (v instanceof File) {
+            preview[k] = { name: v.name, type: v.type, size: v.size };
+          } else {
+            preview[k] = v;
+          }
+        });
+        // eslint-disable-next-line no-console
+        console.log('Job form payload preview →', preview);
+      } catch (_) {}
+
+      // Determine API endpoint based on environment
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:4000/api/send-email'
+        : '/api/send-email';
+
+      // Add a timeout to avoid hanging UI if network stalls
+      // Avoid aborting when uploading files; only apply timeout for no-file submissions
+      const hasFiles = Boolean(resume || coverLetter || portfolio);
+      let response;
+      if (hasFiles) {
+        response = await fetch(apiUrl, { method: 'POST', body: formDataToSend });
+      } else {
+        const controller = new AbortController();
+        const timeoutMs = 60000;
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        response = await fetch(apiUrl, { method: 'POST', body: formDataToSend, signal: controller.signal });
+        clearTimeout(timeoutId);
+      }
+
+      const result = await response.json();
+      
+      if (!response.ok) {
+        // Surface server-side validation errors if present
+        if (result && Array.isArray(result.errors) && result.errors.length > 0) {
+          throw new Error(result.errors.join('\n'));
+        }
+        throw new Error(result.error || 'Submission failed');
+      }
+
+      console.log('Job application submitted successfully:', result);
       return { success: true };
     } catch (e) {
+      console.error('Job application submission error:', e);
+      if (e.name === 'AbortError') {
+        return { success: false, error: new Error('Upload timed out. Please try again (files may be large or network is slow).') };
+      }
       return { success: false, error: e };
     }
   };
@@ -86,13 +153,16 @@ const ApplicationForm = ({ positions = [] }) => {
     const v = validate();
     if (v) { setError(v); return; }
     setError(''); setSubmitting(true);
-    const result = await sendApplication();
-    setSubmitting(false);
-    if (result.success) {
-      setSubmitted(true);
-      localStorage.removeItem('careers_form');
-    } else {
-      setError('Submission failed. Please try again.');
+    try {
+      const result = await sendApplication();
+      if (result.success) {
+        setSubmitted(true);
+        localStorage.removeItem('careers_form');
+      } else {
+        setError(result?.error?.message || String(result?.error) || 'Submission failed. Please try again.');
+      }
+    } finally {
+      setSubmitting(false);
     }
   };
 

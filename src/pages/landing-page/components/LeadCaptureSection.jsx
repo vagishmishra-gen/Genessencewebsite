@@ -17,19 +17,68 @@ const LeadCaptureSection = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', data);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setCurrentStep(1);
-      reset();
-    }, 5000);
+    try {
+      // Prepare form data for email API
+      const formDataToSend = new FormData();
+      formDataToSend.append('formType', 'contact');
+      
+      // Add all form fields with API field mapping
+      const fieldMap = {
+        email: 'workEmail',
+        phone: 'contactNumber',
+        company: 'companyName',
+        role: 'yourRole',
+        challenge: 'biggestChallenge',
+        interests: 'areasInterest',
+      };
+
+      Object.entries(data).forEach(([key, value]) => {
+        if (value !== '' && value !== null && value !== undefined) {
+          const apiKey = fieldMap[key] || key;
+          formDataToSend.append(apiKey, value);
+        }
+      });
+
+      // Determine API endpoint based on environment
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:4000/api/send-email'
+        : '/api/send-email';
+
+      // Debug: log what we are sending from the frontend
+      try {
+        const preview = {};
+        formDataToSend.forEach((v, k) => { preview[k] = v; });
+        // eslint-disable-next-line no-console
+        console.log('Contact form payload preview →', preview);
+      } catch (_) {}
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Submission failed');
+      }
+
+      console.log('Form submitted successfully:', result);
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setCurrentStep(1);
+        reset();
+      }, 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setIsSubmitting(false);
+      // You can add error handling here if needed
+      alert('Submission failed. Please try again.');
+    }
   };
 
   const nextStep = () => {
@@ -161,8 +210,8 @@ const LeadCaptureSection = () => {
                   type="email"
                   placeholder="john.smith@company.com"
                   required
-                  error={errors?.email?.message}
-                  {...register('email', { 
+                  error={errors?.workEmail?.message}
+                  {...register('workEmail', { 
                     required: 'Email is required',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
@@ -198,8 +247,8 @@ const LeadCaptureSection = () => {
                   type="text"
                   placeholder="Acme Corporation"
                   required
-                  error={errors?.company?.message}
-                  {...register('company', { required: 'Company name is required' })}
+                  error={errors?.companyName?.message}
+                  {...register('companyName', { required: 'Company name is required' })}
                 />
 
                 <div className="grid md:grid-cols-2 gap-6">
@@ -251,8 +300,8 @@ const LeadCaptureSection = () => {
                   type="text"
                   placeholder="CTO, CEO, VP of Operations, etc."
                   required
-                  error={errors?.role?.message}
-                  {...register('role', { required: 'Role is required' })}
+                  error={errors?.yourRole?.message}
+                  {...register('yourRole', { required: 'Role is required' })}
                 />
               </motion.div>
             )}
@@ -277,10 +326,10 @@ const LeadCaptureSection = () => {
                     className="w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                     rows="4"
                     placeholder="Describe the manual processes or inefficiencies you'd like to automate..."
-                    {...register('challenge', { required: 'Please describe your challenge' })}
+                    {...register('biggestChallenge', { required: 'Please describe your challenge' })}
                   />
-                  {errors?.challenge && (
-                    <p className="text-error text-sm mt-1">{errors?.challenge?.message}</p>
+                  {errors?.biggestChallenge && (
+                    <p className="text-error text-sm mt-1">{errors?.biggestChallenge?.message}</p>
                   )}
                 </div>
 
@@ -302,7 +351,7 @@ const LeadCaptureSection = () => {
                           type="checkbox"
                           value={area}
                           className="w-4 h-4 text-primary bg-input border-border rounded focus:ring-primary focus:ring-2"
-                          {...register('interests')}
+                          {...register('areasInterest')}
                         />
                         <span className="text-muted-foreground">{area}</span>
                       </label>
@@ -355,8 +404,8 @@ const LeadCaptureSection = () => {
                     variant="default"
                     onClick={nextStep}
                     disabled={
-                      (currentStep === 1 && (!watchedValues?.firstName || !watchedValues?.lastName || !watchedValues?.email)) ||
-                      (currentStep === 2 && (!watchedValues?.company || !watchedValues?.companySize || !watchedValues?.industry || !watchedValues?.role))
+                      (currentStep === 1 && (!watchedValues?.firstName || !watchedValues?.lastName || !watchedValues?.workEmail)) ||
+                      (currentStep === 2 && (!watchedValues?.companyName || !watchedValues?.companySize || !watchedValues?.industry || !watchedValues?.yourRole))
                     }
                     iconName="ChevronRight"
                     iconPosition="right"
