@@ -181,7 +181,7 @@ const ApplicationForm = ({ positions = [] }) => {
             <li>Final decision: ~1-2 weeks post interviews</li>
           </ul>
         </div>
-        <p className="text-sm text-muted-foreground mt-6">Questions? Email <strong>vagish.mishra@genessence.ai</strong></p>
+        <p className="text-sm text-muted-foreground mt-6">Questions? Email <strong>sagar.maurya@genessence.ai</strong></p>
       </div>
     );
   }

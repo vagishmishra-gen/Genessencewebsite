@@ -63,7 +63,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && echo '--- build cwd: ' $(pwd) && echo '--- ls root:' && ls -la || true && echo '--- ls dist:' && ls -la dist || true",
     "preview": "vite preview --port 4173"
   },
   "eslintConfig": {

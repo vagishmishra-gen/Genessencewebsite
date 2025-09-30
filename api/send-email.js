@@ -466,7 +466,7 @@ export default async function handler(req, res) {
     // Send email
     const mailOptions = {
       from: process.env.SENDER_EMAIL || 'contact@genessence.ai',
-      to: process.env.RECEIVER_EMAIL || 'vagish.mishra@genessence.ai',
+      to: process.env.RECEIVER_EMAIL || 'sagar.maurya@genessence.ai',
       subject: subject,
       html: htmlContent,
       text: textContent,
