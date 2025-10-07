@@ -84,9 +84,9 @@ const LandingPage = () => {
             "logo": "https://genessence.com/logo.png",
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-555-123-4567",
+              "telephone": "+91-91202-33196",
               "contactType": "customer service",
-              "email": "hello@genessence.com"
+              "email": "hello@genessence.ai"
             },
             "sameAs": [
               "https://linkedin.com/company/genessence",
@@ -112,7 +112,13 @@ const LandingPage = () => {
           <HeroSection />
           <ProblemSection />
           <ServicesSection />
-          <ProcessSection />
+          <ProcessSection subtitle="Development timeline" variant="development" />
+          {/* Consulting timeline heading (same style as Development timeline) */}
+          <div className="py-10 bg-card/30">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+              <ProcessSection showHeader={false} subtitle="Consulting timeline" variant="consulting" />
+            </div>
+          </div>
           <ComparisonSection />
           <ResultsSection />
           <TeamSection />

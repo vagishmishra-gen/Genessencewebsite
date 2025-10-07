@@ -11,6 +11,7 @@ import NavigationArrows from './components/NavigationArrows';
 import { caseStudies, insights } from './data/caseStudiesData';
 
 const CaseStudiesPage = () => {
+  const SHOW_INSIGHTS = false;
   const [currentCaseStudyIndex, setCurrentCaseStudyIndex] = useState(0);
   const [currentInsightIndex, setCurrentInsightIndex] = useState(0);
   const caseStudyScrollRef = useRef(null);
@@ -103,17 +104,20 @@ const CaseStudiesPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <SlidingCTA label="View Case Studies" onClick={() => scrollToSection('case-studies')} size="lg" />
-                <Button
-                  onClick={() => scrollToSection('insights')}
-                  variant="outline"
-                  size="lg"
-                  iconName="BookOpen"
-                  iconPosition="left"
-                  iconSize={20}
-                  className="border-primary/30 text-primary hover:bg-primary/10"
-                >
-                  Read Insights
-                </Button>
+                {/* Read Insights button hidden for now */}
+                <div className="hidden">
+                  <Button
+                    onClick={() => scrollToSection('insights')}
+                    variant="outline"
+                    size="lg"
+                    iconName="BookOpen"
+                    iconPosition="left"
+                    iconSize={20}
+                    className="border-primary/30 text-primary hover:bg-primary/10"
+                  >
+                    Read Insights
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -186,65 +190,67 @@ const CaseStudiesPage = () => {
                 <div className="text-muted-foreground">Time Reduction</div>
               </div>
               <div className="text-center p-6 bg-card border border-border rounded-xl">
-                <div className="text-3xl font-bold text-accent mb-2">100+</div>
+                <div className="text-3xl font-bold text-accent mb-2">4+</div>
                 <div className="text-muted-foreground">Successful Projects</div>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Insights Section */}
-        <section id="insights" className="py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-headline-bold text-foreground mb-4">
-                Industry Insights & Trends
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Stay ahead with our latest insights on AI automation, digital transformation, 
-                and industry best practices from our expert team.
-              </p>
-            </motion.div>
+        {/* Insights Section (hidden for now) */}
+        {SHOW_INSIGHTS && (
+          <section id="insights" className="py-20 bg-muted/30">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-16"
+              >
+                <h2 className="text-3xl md:text-4xl font-headline-bold text-foreground mb-4">
+                  Industry Insights & Trends
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                  Stay ahead with our latest insights on AI automation, digital transformation, 
+                  and industry best practices from our expert team.
+                </p>
+              </motion.div>
 
-            {/* Insights Grid */}
-            <div className="relative">
-              <div className="overflow-hidden">
-                <motion.div
-                  ref={insightScrollRef}
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{
-                    transform: `translateX(-${currentInsightIndex * (100 / visibleInsights)}%)`
-                  }}
-                >
-                  {insights.map((insight, index) => (
-                    <div
-                      key={insight.id}
-                      className="flex-shrink-0 px-4"
-                      style={{ width: `${100 / visibleInsights}%` }}
-                    >
-                      <InsightCard insight={insight} index={index} />
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
+              {/* Insights Grid */}
+              <div className="relative">
+                <div className="overflow-hidden">
+                  <motion.div
+                    ref={insightScrollRef}
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{
+                      transform: `translateX(-${currentInsightIndex * (100 / visibleInsights)}%)`
+                    }}
+                  >
+                    {insights.map((insight, index) => (
+                      <div
+                        key={insight.id}
+                        className="flex-shrink-0 px-4"
+                        style={{ width: `${100 / visibleInsights}%` }}
+                      >
+                        <InsightCard insight={insight} index={index} />
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
 
-              {/* Navigation Arrows */}
-              <div className="flex justify-center mt-8">
-                <NavigationArrows
-                  onPrevious={handleInsightPrevious}
-                  onNext={handleInsightNext}
-                  canGoPrevious={currentInsightIndex > 0}
-                  canGoNext={currentInsightIndex < maxInsightIndex}
-                />
+                {/* Navigation Arrows */}
+                <div className="flex justify-center mt-8">
+                  <NavigationArrows
+                    onPrevious={handleInsightPrevious}
+                    onNext={handleInsightNext}
+                    canGoPrevious={currentInsightIndex > 0}
+                    canGoNext={currentInsightIndex < maxInsightIndex}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* CTA Section */}
         <section className="py-20">

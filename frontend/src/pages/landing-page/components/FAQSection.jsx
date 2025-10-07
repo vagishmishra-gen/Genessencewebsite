@@ -17,7 +17,7 @@ const FAQSection = () => {
     },
     {
       question: "How do you ensure AI solutions integrate with our existing systems?",
-      answer: `Our integration specialists conduct a thorough audit of your current technology stack during the discovery phase. We design solutions that work seamlessly with your existing systems using:\n\n• API-first architecture for easy integration\n• Gradual rollout to minimize disruption\n• Comprehensive testing in staging environments\n• Zero-downtime deployment strategies\n\nWe've successfully integrated with 200+ different enterprise systems including SAP, Salesforce, Oracle, and custom-built solutions.`
+      answer: `Our integration specialists conduct a thorough audit of your current technology stack during the discovery phase. We design solutions that work seamlessly with your existing systems using:\n\n• API-first architecture for easy integration\n• Gradual rollout to minimize disruption\n• Comprehensive testing in staging environments\n• Zero-downtime deployment strategies\n\nWe've successfully integrated with 4+ different enterprise systems including SAP, Salesforce, Oracle, and custom-built solutions.`
     },
     {
       question: "What level of support do you provide after implementation?",
@@ -131,7 +131,7 @@ const FAQSection = () => {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <SlidingCTA label="Schedule Free Consultation" onClick={scrollToLeadCapture} size="md" iconName="Calendar" />
-              <SlidingCTA label="hello@genessence.com" href="mailto:hello@genessence.com" size="md" iconName="Mail" />
+              <SlidingCTA label="hello@genessence.ai" href="mailto:hello@genessence.ai" size="md" iconName="Mail" />
             </div>
           </div>
         </motion.div>

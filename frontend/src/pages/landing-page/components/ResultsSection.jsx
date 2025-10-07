@@ -15,7 +15,7 @@ const ResultsSection = () => {
     roi: 300,
     efficiency: 85,
     satisfaction: 95,
-    clients: 100
+    clients: 4
   };
 
 

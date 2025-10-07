@@ -12,7 +12,7 @@ const HeroSection = () => {
   const metrics = [
     { value: "300%", label: "Average ROI" },
     { value: "85%", label: "Process Efficiency" },
-    { value: "100+", label: "Enterprise Clients" },
+    { value: "4+", label: "Enterprise Clients" },
     { value: "95%", label: "Client Satisfaction" }
   ];
 
@@ -136,9 +136,10 @@ const HeroSection = () => {
             className="pt-12"
           >
             <p className="text-sm text-muted-foreground mb-4">
-              Trusted by 100+ companies worldwide
+              Trusted by 4+ companies worldwide
             </p>
-            <div className="relative overflow-hidden">
+            {/* Marquee hidden temporarily */}
+            <div className="relative overflow-hidden hidden">
               <div className="flex whitespace-nowrap opacity-60 animate-marquee">
                 {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA']
                   .concat(['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA'])

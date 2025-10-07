@@ -239,7 +239,8 @@ const TestimonialsSection = () => {
           <p className="text-sm text-muted-foreground mb-6">
             Trusted by leading companies worldwide
           </p>
-          <div className="relative overflow-hidden">
+          {/* Marquee hidden temporarily */}
+          <div className="relative overflow-hidden hidden">
             {/* Marquee track duplicated for seamless loop */}
             <div className="flex whitespace-nowrap opacity-60 animate-marquee">
               {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA']

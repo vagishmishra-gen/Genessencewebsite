@@ -221,7 +221,7 @@ const LeadCaptureSection = () => {
                 <Input
                   label="Phone Number"
                   type="tel"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder="+91 91202 33196"
                   error={errors?.phone?.message}
                   {...register('phone')}
                 />

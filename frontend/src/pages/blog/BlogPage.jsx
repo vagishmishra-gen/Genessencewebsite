@@ -22,14 +22,17 @@ const BlogPage = () => {
   }, []);
 
   const filtered = useMemo(() => {
+    const hasImage = (p) => p?.image && !p.image.includes('no_image');
     const q = query.trim().toLowerCase();
     return blogPosts.filter(p => {
+      if (featured && p.id === featured.id) return false; // avoid duplicate of featured in grid
+      if (!hasImage(p)) return false;
       const inCat = category === 'All' || p.category === category;
       if (!q) return inCat;
       const text = [p.title, p.excerpt, p.content, p.author?.name, ...(p.tags||[])].join(' ').toLowerCase();
       return inCat && text.includes(q);
     });
-  }, [query, category]);
+  }, [query, category, featured]);
 
   return (
     <div className="min-h-screen bg-background text-foreground">

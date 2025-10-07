@@ -2,14 +2,28 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 
-const ProcessSection = () => {
+const ProcessSection = ({ showHeader = true, subtitle, variant = 'development' }) => {
   const [activeStep, setActiveStep] = useState(0);
+
+  const durations = variant === 'consulting'
+    ? [
+        'Week 1-2',
+        'Week 3-5',
+        'Week 6-13',
+        'Week 13-15'
+      ]
+    : [
+        'Day 1-3',
+        'Day 4-8',
+        'Day 9-13',
+        'Day 14-15'
+      ];
 
   const processSteps = [
     {
       number: "01",
       title: "Discovery & Assessment",
-      duration: "Week 1-2",
+      duration: durations[0],
       description: "Comprehensive analysis of your current processes and identification of automation opportunities",
       deliverables: [
         "Process mapping and documentation",
@@ -23,7 +37,7 @@ const ProcessSection = () => {
     {
       number: "02",
       title: "Solution Design",
-      duration: "Week 3-4",
+      duration: durations[1],
       description: "Custom AI solution architecture tailored to your specific business requirements",
       deliverables: [
         "Technical architecture design",
@@ -37,7 +51,7 @@ const ProcessSection = () => {
     {
       number: "03",
       title: "Development & Testing",
-      duration: "Week 5-8",
+      duration: durations[2],
       description: "Agile development with continuous testing and validation to ensure optimal performance",
       deliverables: [
         "AI model development",
@@ -51,7 +65,7 @@ const ProcessSection = () => {
     {
       number: "04",
       title: "Deployment & Optimization",
-      duration: "Week 9-12",
+      duration: durations[3],
       description: "Seamless deployment with ongoing monitoring and optimization for maximum ROI",
       deliverables: [
         "Production deployment",
@@ -67,23 +81,34 @@ const ProcessSection = () => {
   return (
     <section id="process" className="py-20 bg-card/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
-            Our Proven{' '}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Implementation Process
-            </span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A systematic approach that ensures successful AI transformation with guaranteed results
-          </p>
-        </motion.div>
+        {showHeader && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-headline text-foreground mb-6">
+              Our Proven{' '}
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Implementation Process
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A systematic approach that ensures successful AI transformation with guaranteed results
+            </p>
+          </motion.div>
+        )}
+
+        {/* Sub Title */}
+        {subtitle && (
+          <div className="text-center mb-10">
+            <h3 className="text-2xl md:text-3xl font-headline font-semibold">
+              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{subtitle}</span>
+            </h3>
+          </div>
+        )}
 
         {/* Timeline Navigation */}
         <div className="flex justify-center mb-12">

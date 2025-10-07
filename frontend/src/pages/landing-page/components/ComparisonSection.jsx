@@ -7,7 +7,7 @@ const ComparisonSection = () => {
     {
       category: "Implementation Time",
       typical: "6-12 months",
-      genessence: "4-8 weeks",
+      genessence: "2-3 weeks",
       advantage: "75% faster delivery"
     },
     {

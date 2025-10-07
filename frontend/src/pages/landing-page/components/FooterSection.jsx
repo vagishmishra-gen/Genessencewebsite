@@ -82,19 +82,19 @@ const FooterSection = () => {
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <Icon name="Mail" size={16} className="text-primary" />
-                    <a href="mailto:hello@genessence.com" className="hover:text-primary transition-colors">
-                      hello@genessence.com
+                    <a href="mailto:hello@genessence.ai" className="hover:text-primary transition-colors">
+                      hello@genessence.ai
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <Icon name="Phone" size={16} className="text-primary" />
-                    <a href="tel:+1-555-123-4567" className="hover:text-primary transition-colors">
-                      +1 (555) 123-4567
+                    <a href="tel:+91-91202-33196" className="hover:text-primary transition-colors">
+                      +91 91202 33196
                     </a>
                   </div>
                   <div className="flex items-center space-x-3 text-muted-foreground">
                     <Icon name="MapPin" size={16} className="text-primary" />
-                    <span>San Francisco, CA & Remote</span>
+                    <span>Noida, Uttar Pradesh</span>
                   </div>
                 </div>
 

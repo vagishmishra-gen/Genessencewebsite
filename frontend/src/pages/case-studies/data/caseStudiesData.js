@@ -1,17 +1,17 @@
 export const caseStudies = [
   {
     id: 1,
-    title: "TechCorp Manufacturing Automation",
-    description: "Complete workflow transformation reducing processing time by 75% and delivering 300% ROI in just 6 months through intelligent automation.",
-    image: "/assets/images/no_image.png",
+    title: "Vendor Management System",
+    description: "Transformed the entire vendor management workflow — reducing onboarding and approval time by 75% and achieving over 300% ROI within 6 months through intelligent digital automation and streamlined vendor operations.",
+    image: "/assets/images/vms.png",
     metrics: { 
       timeReduction: "75%", 
       roi: "300%", 
       timeline: "6 months",
       costSavings: "$2.4M"
     },
-    pdfFile: "/case-studies/techcorp-case-study.pdf",
-    industry: "Manufacturing",
+    pdfFile: "/case-studies/VMS.pdf",
+    industry: "technology",
     tags: ["Automation", "Process Mining", "ROI"],
     client: "TechCorp Manufacturing",
     challenge: "Manual processes causing delays and errors",
@@ -19,93 +19,21 @@ export const caseStudies = [
   },
   {
     id: 2,
-    title: "Salesforce CRM Optimization",
-    description: "Enhanced customer relationship management with AI-driven insights, increasing lead conversion by 40% and customer satisfaction by 25%.",
-    image: "/assets/images/no_image.png",
+    title: "Amber MSME Management System",
+    description: "Optimized MSME operations through process automation and data-driven insights, improving campaign efficiency by 40% and overall team productivity by 25%.",
+    image: "/assets/images/msme.png",
     metrics: { 
       timeReduction: "60%", 
       roi: "250%", 
       timeline: "4 months",
       costSavings: "$1.8M"
     },
-    pdfFile: "/case-studies/salesforce-case-study.pdf",
+    pdfFile: "/case-studies/Msme.pdf",
     industry: "Technology",
     tags: ["CRM", "AI Insights", "Lead Generation"],
     client: "Salesforce Enterprise",
     challenge: "Low lead conversion and poor customer insights",
     solution: "AI-powered CRM enhancement with predictive analytics"
-  },
-  {
-    id: 3,
-    title: "ServiceMax Field Service Revolution",
-    description: "Transformed field service operations with predictive maintenance and intelligent scheduling, reducing downtime by 50% and improving efficiency by 35%.",
-    image: "/assets/images/no_image.png",
-    metrics: { 
-      timeReduction: "50%", 
-      roi: "180%", 
-      timeline: "5 months",
-      costSavings: "$3.2M"
-    },
-    pdfFile: "/case-studies/servicemax-case-study.pdf",
-    industry: "Field Services",
-    tags: ["Predictive Maintenance", "Scheduling", "IoT"],
-    client: "ServiceMax Global",
-    challenge: "Reactive maintenance causing high downtime costs",
-    solution: "Predictive maintenance with IoT integration and smart scheduling"
-  },
-  {
-    id: 4,
-    title: "Oracle Financial Process Automation",
-    description: "Streamlined financial operations with automated reporting and compliance monitoring, reducing processing time by 80% and ensuring 100% accuracy.",
-    image: "/assets/images/no_image.png",
-    metrics: { 
-      timeReduction: "80%", 
-      roi: "220%", 
-      timeline: "3 months",
-      costSavings: "$2.1M"
-    },
-    pdfFile: "/case-studies/oracle-case-study.pdf",
-    industry: "Financial Services",
-    tags: ["Financial Automation", "Compliance", "Reporting"],
-    client: "Oracle Financial",
-    challenge: "Manual financial reporting causing delays and errors",
-    solution: "Automated financial processes with real-time compliance monitoring"
-  },
-  {
-    id: 5,
-    title: "Adobe Creative Workflow Enhancement",
-    description: "Optimized creative production pipeline with AI-assisted content generation and automated asset management, increasing productivity by 45%.",
-    image: "/assets/images/no_image.png",
-    metrics: { 
-      timeReduction: "45%", 
-      roi: "160%", 
-      timeline: "4 months",
-      costSavings: "$1.5M"
-    },
-    pdfFile: "/case-studies/adobe-case-study.pdf",
-    industry: "Creative Services",
-    tags: ["Content Generation", "Asset Management", "Productivity"],
-    client: "Adobe Creative Cloud",
-    challenge: "Inefficient creative workflows and asset management",
-    solution: "AI-powered content tools with intelligent asset organization"
-  },
-  {
-    id: 6,
-    title: "SAP Supply Chain Intelligence",
-    description: "Implemented intelligent supply chain management with predictive analytics and automated inventory optimization, reducing costs by 30% and improving delivery times by 25%.",
-    image: "/assets/images/no_image.png",
-    metrics: { 
-      timeReduction: "30%", 
-      roi: "200%", 
-      timeline: "7 months",
-      costSavings: "$4.1M"
-    },
-    pdfFile: "/case-studies/sap-case-study.pdf",
-    industry: "Supply Chain",
-    tags: ["Supply Chain", "Predictive Analytics", "Inventory"],
-    client: "SAP Global",
-    challenge: "Complex supply chain with poor visibility and forecasting",
-    solution: "AI-driven supply chain optimization with predictive analytics"
   }
 ];
 

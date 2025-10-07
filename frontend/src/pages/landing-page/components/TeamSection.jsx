@@ -10,11 +10,11 @@ const TeamSection = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Dr. Sarah Chen",
-      role: "Chief AI Officer",
-      expertise: "Machine Learning & Neural Networks",
-      experience: "15+ years",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+      name: "Krishna Saxena",
+      role: "Founder",
+      expertise: "Strategy Management",
+      experience: "4+ years",
+      image: "/assets/images/krishna.jpeg",
       credentials: [
         "PhD in Computer Science, Stanford",
         "Former Google AI Research Lead",
@@ -31,11 +31,11 @@ const TeamSection = () => {
     },
     {
       id: 2,
-      name: "Marcus Rodriguez",
-      role: "Head of Implementation",
-      expertise: "Enterprise Integration & DevOps",
-      experience: "12+ years",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      name: "Shrey Mishra",
+      role: "Founder",
+      expertise: "Data Scientist",
+      experience: "3+ Years",
+      image: "/assets/images/shrey.jpeg",
       credentials: [
         "MS in Software Engineering, MIT",
         "AWS Certified Solutions Architect",
@@ -52,11 +52,11 @@ const TeamSection = () => {
     },
     {
       id: 3,
-      name: "Emily Watson",
-      role: "Data Science Director",
-      expertise: "Predictive Analytics & Business Intelligence",
-      experience: "10+ years",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      name: "Sagar Maurya",
+      role: "Founder",
+      expertise: "Operation Management",
+      experience: "4+ years",
+      image: "/assets/images/sagar.jpeg",
       credentials: [
         "PhD in Statistics, Harvard",
         "Former McKinsey Data Consultant",
@@ -73,11 +73,11 @@ const TeamSection = () => {
     },
     {
       id: 4,
-      name: "David Kim",
-      role: "Customer Success Lead",
-      expertise: "Client Relations & Training",
-      experience: "8+ years",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      name: "Vagish Mishra",
+      role: "Developer",
+      expertise: "FullStack developer",
+      experience: "3+ Years",
+      image: "/assets/images/vagish.jpeg",
       credentials: [
         "MBA in Business Strategy, Wharton",
         "Certified Customer Success Manager",
@@ -176,10 +176,7 @@ const TeamSection = () => {
                   <p className="text-sm text-muted-foreground mb-3">
                     {member?.expertise}
                   </p>
-                  <div className="flex items-center justify-center space-x-2 text-xs text-secondary">
-                    <Icon name="Award" size={14} />
-                    <span>{member?.experience}</span>
-                  </div>
+                  {/* Experience hidden as requested */}
                 </div>
 
                 {/* Hover Details removed */}
@@ -221,12 +218,10 @@ const TeamSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-4 gap-8 mb-12"
+          className="grid md:grid-cols-2 gap-8 mb-12"
         >
           {[
-            { number: "50+", label: "Years Combined Experience", icon: "Clock" },
-            { number: "200+", label: "Successful Projects", icon: "CheckCircle" },
-            { number: "15+", label: "Industry Certifications", icon: "Award" },
+            { number: "4+", label: "Successful Projects", icon: "CheckCircle" },
             { number: "24/7", label: "Support Coverage", icon: "Headphones" }
           ]?.map((stat, index) => (
             <div key={index} className="text-center">
