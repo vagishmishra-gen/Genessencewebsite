@@ -542,7 +542,6 @@ app.listen(PORT, () => {
   console.log(`📧 Emails will be sent from: ${process.env.SENDER_EMAIL || 'contact@genessence.ai'}`);
   console.log(`📬 Emails will be sent to: ${process.env.RECEIVER_EMAIL || 'hello@genessence.ai'}`);
   console.log(`🔗 API endpoint: http://localhost:${PORT}/api/send-email`);
-  console.log(`🌐 CORS enabled for: http://localhost:4028, http://localhost:5173`);
 });
 
 module.exports = app;
