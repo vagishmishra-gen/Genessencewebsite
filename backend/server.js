@@ -12,10 +12,15 @@ const PORT = process.env.LOCAL_PORT || 4000;
 
 // Enable CORS for Vite dev server
 app.use(cors({
-  origin: ['http://localhost:4028', 
+  origin: [
+    'http://localhost:4028', 
     'http://localhost:5173',
     'http://13.203.156.76',
-    'https://13.203.156.76' ],
+    'http://genessence.ai',
+    'http://www.genessence.ai',
+    'https://genessence.ai',
+    'https://www.genessence.ai'
+  ],
   credentials: true
 }));
 
