@@ -40,7 +40,9 @@ const LeadCaptureSection = () => {
       });
 
       // Determine API endpoint based on environment
-      const apiUrl = '/api/contact';
+      const apiUrl = import.meta.env.DEV 
+        ? 'http://localhost:4000/api/send-email'
+        : '/api/send-email';
 
       // Debug: log what we are sending from the frontend
       try {

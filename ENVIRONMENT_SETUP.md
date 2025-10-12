@@ -9,7 +9,7 @@ Set these environment variables in your Vercel dashboard:
 SMTP_USER=contact@genessence.ai
 SMTP_PASS=xant uvcu unqy hhsy
 SENDER_EMAIL=contact@genessence.ai
-RECEIVER_EMAIL=vagish.mishra@genessence.ai
+RECEIVER_EMAIL=hello@genessence.ai
 ```
 
 ### Optional SMTP Settings (defaults provided)

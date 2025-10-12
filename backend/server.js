@@ -1,12 +1,20 @@
 // server.js - Local development server for testing
 const express = require('express');
+const { formidable } = require('formidable');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-require('dotenv').config({ path: '../.env.local' });
+const fs = require('fs');
+const path = require('path');
+require('dotenv').config({ path: '.env.local' });
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+const PORT = process.env.LOCAL_PORT || 4000;
+
+// Enable CORS for Vite dev server
+app.use(cors({
+  origin: ['http://localhost:4028', 'http://localhost:5173'],
+  credentials: true
+}));
 
 // Email configuration (removed createTransporter function)
 
@@ -369,40 +377,169 @@ const cleanupFiles = (files) => {
   }
 };
 
-app.post('/api/contact', async (req, res) => {
+// Main API endpoint
+app.post('/api/send-email', async (req, res) => {
   try {
-    const { name, email, message } = req.body || {};
-    if (!name || !email || !message) {
-      return res.status(400).json({ success: false, error: 'Missing required fields' });
+    console.log('📧 Received form submission request');
+    
+    // Parse form data
+    const form = formidable({
+      uploadDir: path.join(__dirname, 'tmp'),
+      keepExtensions: true,
+      maxFileSize: 10 * 1024 * 1024, // 10MB max per file
+    });
+
+    // Ensure tmp directory exists
+    const tmpDir = path.join(__dirname, 'tmp');
+    if (!fs.existsSync(tmpDir)) {
+      fs.mkdirSync(tmpDir, { recursive: true });
     }
 
+    const [fields, files] = await form.parse(req);
+
+    // Convert fields to strings
+    const formData = {};
+    Object.entries(fields).forEach(([key, value]) => {
+      formData[key] = Array.isArray(value) ? value[0] : value;
+    });
+
+    // Determine form type
+    const formType = formData.formType || (formData.fullName ? 'job' : 'contact');
+
+    console.log(`📝 Form type: ${formType}`);
+    console.log('📋 Form data:', formData);
+
+    // Validate required fields
+    const errors = [];
+    if (formType === 'contact') {
+      if (!formData.firstName) errors.push('First name is required');
+      if (!formData.workEmail) errors.push('Work email is required');
+    } else {
+      if (!formData.fullName) errors.push('Full name is required');
+      if (!formData.email) errors.push('Email is required');
+    }
+
+    // Validate files for job application
+    if (formType === 'job' && files) {
+      ['resume', 'coverLetter', 'portfolio'].forEach(fieldName => {
+        if (files[fieldName]) {
+          const validation = validateFile(files[fieldName], fieldName);
+          if (!validation.valid) {
+            errors.push(validation.error);
+          }
+        }
+      });
+    }
+
+    if (errors.length > 0) {
+      cleanupFiles(files);
+      return res.status(400).json({
+        success: false,
+        error: 'Validation failed',
+        errors: errors
+      });
+    }
+
+    // Create email transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: Number(process.env.SMTP_PORT || 465),
-      secure: String(process.env.SMTP_SECURE || 'true') === 'true',
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.SMTP_USER || 'contact@genessence.ai',
+        pass: process.env.SMTP_PASS || 'xant uvcu unqy hhsy',
       },
     });
 
-    const info = await transporter.sendMail({
-      from: process.env.SENDER_EMAIL || process.env.SMTP_USER,
-      to: process.env.RECEIVER_EMAIL,
-      subject: `New Contact from ${name}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
+    // Prepare attachments
+    const attachments = [];
+    if (files) {
+      Object.entries(files).forEach(([fieldName, file]) => {
+        const f = Array.isArray(file) ? file[0] : file;
+        if (f && f.filepath) {
+          attachments.push({
+            filename: f.originalFilename || f.newFilename || fieldName,
+            path: f.filepath,
+            contentType: f.mimetype || undefined
+          });
+        }
+      });
+    }
+
+    // Create email content
+    const templateVersion = 'v3';
+    const subject = formType === 'contact' 
+      ? `[Contact ${templateVersion}] New inquiry from ${formData.firstName} ${formData.lastName || ''} - ${formData.companyName || 'Unknown Company'}`
+      : `[Job Application ${templateVersion}] ${formData.fullName} - ${formData.position || 'Position Not Specified'}`;
+
+    const htmlContent = formType === 'contact' 
+      ? createContactEmailHTML(formData)
+      : createJobApplicationEmailHTML(formData, files);
+    const textContent = formType === 'contact'
+      ? `New Contact: ${formData.firstName} ${formData.lastName || ''}\nEmail: ${formData.workEmail}\nPhone: ${formData.contactNumber || 'Not provided'}\nCompany: ${formData.companyName || 'Not provided'}\nCompany Size: ${formData.companySize || 'Not provided'}\nIndustry: ${formData.industry || 'Not provided'}\nRole: ${formData.yourRole || 'Not provided'}\nBiggest Challenge: ${formData.biggestChallenge || 'Not provided'}\nAreas of Interest: ${formData.areasInterest || 'Not provided'}\nTimeline: ${formData.timeline || 'Not provided'}\nSubmitted: ${new Date().toLocaleString()}`
+      : createJobApplicationEmailText(formData, files);
+
+    // Send email
+    // Debug log to ensure updated template is used
+    console.log('🧪 Template includes Education section:', htmlContent.includes('section-title">Education'));
+    console.log('🧪 Template includes Debug table:', htmlContent.includes('All Submitted Fields (Debug)'));
+
+    const mailOptions = {
+      from: process.env.SENDER_EMAIL || 'contact@genessence.ai',
+      to: process.env.RECEIVER_EMAIL || 'hello@genessence.ai',
+      subject: subject,
+      html: htmlContent,
+      text: textContent,
+      attachments: attachments
+    };
+
+    console.log('📤 Sending email...');
+    const info = await transporter.sendMail(mailOptions);
+    console.log('✅ Email sent successfully:', info.messageId);
+
+    // Clean up temporary files
+    cleanupFiles(files);
+
+    // Return success response
+    return res.status(200).json({
+      success: true,
+      message: 'Email sent successfully',
+      messageId: info.messageId
     });
 
-    return res.status(200).json({ success: true, messageId: info.messageId });
-  } catch (err) {
-    console.error('Contact error:', err);
-    return res.status(500).json({ success: false, error: 'Failed to send contact email' });
+  } catch (error) {
+    console.error('❌ Error processing form submission:', error);
+    
+    // Clean up files on error
+    cleanupFiles(req.files);
+
+    return res.status(500).json({
+      success: false,
+      error: 'Internal server error. Please try again later.'
+    });
   }
 });
 
-// Health check endpoint (optional for local dev)
+// Health check endpoint
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
+  res.json({ 
+    status: 'OK', 
+    timestamp: new Date().toISOString(),
+    environment: {
+      SMTP_USER: process.env.SMTP_USER ? 'SET' : 'NOT SET',
+      SENDER_EMAIL: process.env.SENDER_EMAIL ? 'SET' : 'NOT SET',
+      RECEIVER_EMAIL: process.env.RECEIVER_EMAIL ? 'SET' : 'NOT SET'
+    }
+  });
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Local email server running on http://localhost:${PORT}`);
+  console.log(`📧 Emails will be sent from: ${process.env.SENDER_EMAIL || 'contact@genessence.ai'}`);
+  console.log(`📬 Emails will be sent to: ${process.env.RECEIVER_EMAIL || 'hello@genessence.ai'}`);
+  console.log(`🔗 API endpoint: http://localhost:${PORT}/api/send-email`);
+  console.log(`🌐 CORS enabled for: http://localhost:4028, http://localhost:5173`);
 });
 
 module.exports = app;
