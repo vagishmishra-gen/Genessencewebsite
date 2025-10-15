@@ -9,7 +9,7 @@ const FloatingCTA = () => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
       const heroHeight = window.innerHeight * 0.8; // Show after hero section
-      const contactSection = document.getElementById('contact');
+      const contactSection = document.getElementById('lead-capture');
       
       if (contactSection) {
         const contactTop = contactSection?.offsetTop - window.innerHeight;
@@ -32,7 +32,7 @@ const FloatingCTA = () => {
   }, []);
 
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById('lead-capture');
     if (element) {
       const headerHeight = 80;
       const elementPosition = element?.offsetTop - headerHeight;
