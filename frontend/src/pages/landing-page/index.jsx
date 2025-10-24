@@ -11,7 +11,7 @@ import ProcessSection from './components/ProcessSection';
 import ComparisonSection from './components/ComparisonSection';
 import ResultsSection from './components/ResultsSection';
 import TeamSection from './components/TeamSection';
-import TestimonialsSection from './components/TestimonialsSection';
+// import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import LeadCaptureSection from './components/LeadCaptureSection';
 import FooterSection from './components/FooterSection';
@@ -112,17 +112,17 @@ const LandingPage = () => {
           <HeroSection />
           <ProblemSection />
           <ServicesSection />
-          <ProcessSection subtitle="Development timeline" variant="development" />
           {/* Consulting timeline heading (same style as Development timeline) */}
           <div className="py-10 bg-card/30">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <ProcessSection showHeader={false} subtitle="Consulting timeline" variant="consulting" />
             </div>
           </div>
+          <ProcessSection subtitle="Development timeline" variant="development" />
           <ComparisonSection />
           <ResultsSection />
           <TeamSection />
-          <TestimonialsSection />
+          {/* <TestimonialsSection /> */}
           <FAQSection />
           <LeadCaptureSection />
         </main>
