@@ -89,7 +89,7 @@ const LandingPage = () => {
               "email": "hello@genessence.ai"
             },
             "sameAs": [
-              "https://linkedin.com/company/genessence",
+              "https://www.linkedin.com/company/genessence-consulting-pvt-ltd/",
               "https://twitter.com/genessence"
             ],
             "offers": {

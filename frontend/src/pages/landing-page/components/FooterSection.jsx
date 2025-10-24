@@ -35,10 +35,7 @@ const FooterSection = () => {
   };
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: 'Linkedin', href: '#' },
-    { name: 'Twitter', icon: 'Twitter', href: '#' },
-    { name: 'YouTube', icon: 'Youtube', href: '#' },
-    { name: 'GitHub', icon: 'Github', href: '#' }
+    { name: 'LinkedIn', icon: 'Linkedin', href: 'https://www.linkedin.com/company/genessence-consulting-pvt-ltd/' }
   ];
 
   const scrollToSection = (href) => {
@@ -99,15 +96,20 @@ const FooterSection = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className="flex space-x-4">
+                <div className="flex items-center space-x-3">
                   {socialLinks?.map((social) => (
                     <a
                       key={social?.name}
                       href={social?.href}
-                      className="w-10 h-10 bg-muted/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                      target={social?.href?.startsWith('http') ? '_blank' : undefined}
+                      rel={social?.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="flex items-center space-x-2 text-muted-foreground hover:text-primary transition-colors"
                       aria-label={social?.name}
                     >
-                      <Icon name={social?.icon} size={18} />
+                      <div className="w-8 h-8 bg-muted/20 rounded-lg flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
+                        <Icon name={social?.icon} size={16} />
+                      </div>
+                      <span className="text-sm font-medium">{social?.name}</span>
                     </a>
                   ))}
                 </div>
