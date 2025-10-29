@@ -271,9 +271,7 @@ const ApplicationForm = ({ positions = [] }) => {
           </div>
         </form>
 
-        <div className="mt-8 text-sm text-muted-foreground">
-          Email integration: install <code>@emailjs/browser</code> and replace service/template/public keys in the form. Attachments are prepared as base64.
-        </div>
+        {/* Removed developer note about email integration */}
       </div>
     </section>
   );

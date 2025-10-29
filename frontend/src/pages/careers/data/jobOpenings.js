@@ -12,21 +12,21 @@ export const benefits = [
 export const jobOpenings = [
   {
     id: 1,
-    title: "Senior AI Engineer",
+    title: "MERN Stack Developer",
     department: "Engineering",
     location: "Noida, UP / Remote / Hybrid",
     type: "Full-time",
-    experience: "3-5 years",
-    salaryRange: "₹12-20 LPA",
-    description: "Lead AI implementation projects and develop automation solutions.",
+    experience: "1-3 years",
+    salaryRange: "₹5-6 LPA",
+    description: "We’re looking for a passionate MERN Stack Developer to join our growing tech team. The ideal candidate should have hands-on experience with MongoDB, Express.js, React.js, and Node.js, and a strong understanding of building scalable web applications.",
     requirements: [
-      "CS/AI degree",
-      "3+ years ML/AI",
+      "CS degree",
+      "1–3 years of experience with MERN stack",
       "Python, TensorFlow/PyTorch",
       "AWS/Azure/GCP",
       "REST APIs, microservices",
       "Problem-solving, communication",
-      "MLOps & deployment"
+      "Deployment"
     ],
     responsibilities: [
       "Design and implement AI solutions",
@@ -35,98 +35,6 @@ export const jobOpenings = [
       "Research emerging AI tech",
       "Optimize models"
     ],
-    skills: ["Python", "Machine Learning", "Deep Learning", "Cloud", "MLOps"],
-  },
-  {
-    id: 2,
-    title: "Data Scientist",
-    department: "Analytics",
-    location: "Noida, UP / Remote / Hybrid",
-    type: "Full-time",
-    experience: "2-4 years",
-    salaryRange: "₹10-16 LPA",
-    description: "Analyze datasets and build predictive models for insights.",
-    requirements: [
-      "MS in Data/Stats",
-      "2+ years analysis/ML",
-      "Python/R, SQL, stats",
-      "Visualization tools",
-      "Big data (Spark/Hadoop)",
-      "Analytical and presentation skills"
-    ],
-    skills: ["Python", "R", "SQL", "Statistics", "Visualization", "ML"],
-  },
-  {
-    id: 3,
-    title: "Business Development Manager",
-    department: "Sales & Marketing",
-    location: "Noida, UP / Hybrid",
-    type: "Full-time",
-    experience: "3-6 years",
-    salaryRange: "₹8-14 LPA + Incentives",
-    description: "Drive growth by identifying opportunities and building relationships.",
-    requirements: [
-      "Business/Marketing degree",
-      "3+ years B2B sales (tech preferred)",
-      "Strong communication & negotiation",
-      "CRM tools & processes",
-      "AI/automation understanding"
-    ],
-    skills: ["B2B Sales", "CRM", "Research", "Presentation"],
-  },
-  {
-    id: 4,
-    title: "AI Product Manager",
-    department: "Product",
-    location: "Noida, UP / Remote / Hybrid",
-    type: "Full-time",
-    experience: "4-7 years",
-    salaryRange: "₹15-25 LPA",
-    description: "Lead product strategy and roadmap for AI automation platform.",
-    requirements: [
-      "Engineering/Business degree",
-      "4+ years product (AI/tech preferred)",
-      "Strong AI/ML understanding",
-      "Agile methodologies",
-      "Analytical and strategic skills"
-    ],
-    skills: ["Product Strategy", "AI/ML", "Agile", "Market Analysis"],
-  },
-  {
-    id: 5,
-    title: "Junior Software Developer",
-    department: "Engineering",
-    location: "Noida, UP / Hybrid",
-    type: "Full-time",
-    experience: "0-2 years",
-    salaryRange: "₹6-10 LPA",
-    description: "Build and maintain AI-powered applications and integrations.",
-    requirements: [
-      "CS/IT degree",
-      "0-2 years development",
-      "Python/JavaScript",
-      "React/Node.js",
-      "DBs and APIs basics",
-      "Eagerness to learn AI/ML"
-    ],
-    skills: ["Python", "JavaScript", "React", "Node.js", "Databases"],
-  },
-  {
-    id: 6,
-    title: "DevOps Engineer",
-    department: "Engineering",
-    location: "Noida, UP / Remote / Hybrid",
-    type: "Full-time",
-    experience: "2-5 years",
-    salaryRange: "₹10-18 LPA",
-    description: "Manage cloud infrastructure, CI/CD, and deployments for AI/ML.",
-    requirements: [
-      "CS/IT degree",
-      "2+ years DevOps",
-      "AWS/Azure/GCP, Docker, K8s",
-      "Jenkins/GitHub Actions",
-      "Terraform/CloudFormation"
-    ],
-    skills: ["Cloud", "Docker", "Kubernetes", "CI/CD", "IaC"],
+    skills: ["MongoDB", "Express.js", "React.js", "Node.js"],
   },
 ];
