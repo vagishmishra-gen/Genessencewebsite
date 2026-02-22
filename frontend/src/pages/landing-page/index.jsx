@@ -122,7 +122,6 @@ const LandingPage = () => {
           <ComparisonSection />
           <ResultsSection />
           <TeamSection />
-          <TestimonialsSection />
           <FAQSection />
           <LeadCaptureSection />
         </main>

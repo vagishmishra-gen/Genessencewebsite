@@ -128,7 +128,7 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Trust Indicator */}
+          {/* Trust Indicator - Company logos in motion */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -138,16 +138,40 @@ const HeroSection = () => {
             <p className="text-sm text-muted-foreground mb-4">
               Trusted by 4+ companies worldwide
             </p>
-            {/* Marquee hidden temporarily */}
-            <div className="relative overflow-hidden hidden">
-              <div className="flex whitespace-nowrap opacity-60 animate-marquee">
-                {['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA']
-                  .concat(['Microsoft', 'Amazon', 'Google', 'IBM', 'Oracle', 'Salesforce', 'Meta', 'Adobe', 'SAP', 'NVIDIA'])
-                  ?.map((company, index) => (
-                  <div key={index} className="mx-8 text-2xl font-bold text-foreground inline-block">
-                    {company}
-                  </div>
-                ))}
+            <div className="relative overflow-hidden">
+              <div className="flex items-center gap-12 md:gap-16 animate-marquee shrink-0">
+                {[
+                  '/assets/images/amber.png',
+                  '/assets/images/autoliv.png',
+                  '/assets/images/camana.png',
+                  '/assets/images/iljin.png',
+                  '/assets/images/mars.png',
+                  '/assets/images/picl.png',
+                  '/assets/images/power-one.png',
+                  '/assets/images/sidwal.png',
+                ]
+                  .concat([
+                    '/assets/images/amber.png',
+                    '/assets/images/autoliv.png',
+                    '/assets/images/camana.png',
+                    '/assets/images/iljin.png',
+                    '/assets/images/mars.png',
+                    '/assets/images/picl.png',
+                    '/assets/images/power-one.png',
+                    '/assets/images/sidwal.png',
+                  ])
+                  ?.map((src, index) => (
+                    <div
+                      key={`${src}-${index}`}
+                      className="flex items-center justify-center shrink-0"
+                    >
+                      <img
+                        src={src}
+                        alt="Company logo"
+                        className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  ))}
               </div>
             </div>
           </motion.div>

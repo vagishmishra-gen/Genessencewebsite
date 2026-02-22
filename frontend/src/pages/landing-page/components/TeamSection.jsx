@@ -250,10 +250,10 @@ const TeamSection = () => {
             <h3 className="text-2xl font-semibold text-foreground mb-4">
               Ready to Work with Industry Leaders?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+            {/* <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               Hear what our clients say about working with our expert team
             </p>
-            <SlidingCTA label="Read Client Stories" onClick={scrollToTestimonials} size="md" />
+            <SlidingCTA label="Read Client Stories" onClick={scrollToTestimonials} size="md" /> */}
           </div>
         </motion.div>
       </div>
