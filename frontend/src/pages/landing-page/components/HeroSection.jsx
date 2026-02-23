@@ -127,54 +127,6 @@ const HeroSection = () => {
               View Success Stories
             </Button>
           </motion.div>
-
-          {/* Trust Indicator - Company logos in motion */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="pt-12"
-          >
-            <p className="text-sm text-muted-foreground mb-4">
-              Trusted by 4+ companies worldwide
-            </p>
-            <div className="relative overflow-hidden">
-              <div className="flex items-center gap-12 md:gap-16 animate-marquee shrink-0">
-                {[
-                  '/assets/images/amber.png',
-                  '/assets/images/autoliv.png',
-                  '/assets/images/camana.png',
-                  '/assets/images/iljin.png',
-                  '/assets/images/mars.png',
-                  '/assets/images/picl.png',
-                  '/assets/images/power-one.png',
-                  '/assets/images/sidwal.png',
-                ]
-                  .concat([
-                    '/assets/images/amber.png',
-                    '/assets/images/autoliv.png',
-                    '/assets/images/camana.png',
-                    '/assets/images/iljin.png',
-                    '/assets/images/mars.png',
-                    '/assets/images/picl.png',
-                    '/assets/images/power-one.png',
-                    '/assets/images/sidwal.png',
-                  ])
-                  ?.map((src, index) => (
-                    <div
-                      key={`${src}-${index}`}
-                      className="flex items-center justify-center shrink-0"
-                    >
-                      <img
-                        src={src}
-                        alt="Company logo"
-                        className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                  ))}
-              </div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
       {/* Scroll Indicator */}

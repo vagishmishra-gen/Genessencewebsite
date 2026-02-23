@@ -5,6 +5,7 @@ import Header from '../../components/ui/Header';
 import ScrollProgress from '../../components/ui/ScrollProgress';
 import FloatingCTA from '../../components/ui/FloatingCTA';
 import HeroSection from './components/HeroSection';
+import ClientLogosSection from './components/ClientLogosSection';
 import ProblemSection from './components/ProblemSection';
 import ServicesSection from './components/ServicesSection';
 import ProcessSection from './components/ProcessSection';
@@ -110,6 +111,7 @@ const LandingPage = () => {
         {/* Main Content Sections */}
         <main>
           <HeroSection />
+          <ClientLogosSection />
           <ProblemSection />
           <ServicesSection />
           <ProcessSection subtitle="Development timeline" variant="development" />

@@ -50,7 +50,7 @@ const CareersPage = () => {
       {/* Contact */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <div className="text-sm text-muted-foreground">Questions? Contact HR: <a className="text-primary hover:underline" href="mailto:sagar.maurya@genessence.ai">sagar.maurya@genessence.ai</a></div>
+          <div className="text-sm text-muted-foreground">Questions? Contact HR: <a className="text-primary hover:underline" href="mailto:contact@genessence.ai">contact@genessence.ai</a></div>
         </div>
       </section>
     </div>

@@ -181,7 +181,7 @@ const ApplicationForm = ({ positions = [] }) => {
             <li>Final decision: ~1-2 weeks post interviews</li>
           </ul>
         </div>
-        <p className="text-sm text-muted-foreground mt-6">Questions? Email <strong>sagar.maurya@genessence.ai</strong></p>
+        <p className="text-sm text-muted-foreground mt-6">Questions? Email <strong>contact@genessence.ai</strong></p>
       </div>
     );
   }
@@ -270,10 +270,6 @@ const ApplicationForm = ({ positions = [] }) => {
             <div className="text-xs text-muted-foreground">We respect your privacy. Your information is kept confidential.</div>
           </div>
         </form>
-
-        <div className="mt-8 text-sm text-muted-foreground">
-          Email integration: install <code>@emailjs/browser</code> and replace service/template/public keys in the form. Attachments are prepared as base64.
-        </div>
       </div>
     </section>
   );

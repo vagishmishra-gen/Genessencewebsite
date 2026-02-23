@@ -7,15 +7,13 @@ const ResultsSection = () => {
   const [animatedStats, setAnimatedStats] = useState({
     roi: 0,
     efficiency: 0,
-    satisfaction: 0,
-    clients: 0
+    satisfaction: 0
   });
 
   const finalStats = {
     roi: 300,
     efficiency: 85,
-    satisfaction: 95,
-    clients: 4
+    satisfaction: 95
   };
 
 
@@ -34,8 +32,7 @@ const ResultsSection = () => {
         setAnimatedStats({
           roi: Math.round(finalStats?.roi * easeOutQuart),
           efficiency: Math.round(finalStats?.efficiency * easeOutQuart),
-          satisfaction: Math.round(finalStats?.satisfaction * easeOutQuart),
-          clients: Math.round(finalStats?.clients * easeOutQuart)
+          satisfaction: Math.round(finalStats?.satisfaction * easeOutQuart)
         });
 
         currentStep++;
@@ -96,7 +93,7 @@ const ResultsSection = () => {
         </motion.div>
 
         {/* Animated Statistics */}
-        <div id="results-stats" className="grid md:grid-cols-4 gap-8 mb-16">
+        <div id="results-stats" className="grid md:grid-cols-3 gap-8 mb-16">
           {[
             { 
               key: 'roi', 
@@ -121,14 +118,6 @@ const ResultsSection = () => {
               label: 'Client Satisfaction', 
               icon: 'Heart',
               color: 'text-success'
-            },
-            { 
-              key: 'clients', 
-              value: animatedStats?.clients, 
-              suffix: '+', 
-              label: 'Enterprise Clients', 
-              icon: 'Users',
-              color: 'text-warning'
             }
           ]?.map((stat, index) => (
             <motion.div

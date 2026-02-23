@@ -190,7 +190,7 @@ const CaseStudiesPage = () => {
                 <div className="text-muted-foreground">Time Reduction</div>
               </div>
               <div className="text-center p-6 bg-card border border-border rounded-xl">
-                <div className="text-3xl font-bold text-accent mb-2">4+</div>
+                <div className="text-3xl font-bold text-accent mb-2">10+</div>
                 <div className="text-muted-foreground">Successful Projects</div>
               </div>
             </motion.div>

@@ -221,7 +221,7 @@ const TeamSection = () => {
           className="grid md:grid-cols-2 gap-8 mb-12"
         >
           {[
-            { number: "4+", label: "Successful Projects", icon: "CheckCircle" },
+            { number: "10+", label: "Successful Projects", icon: "CheckCircle" },
             { number: "24/7", label: "Support Coverage", icon: "Headphones" }
           ]?.map((stat, index) => (
             <div key={index} className="text-center">
