@@ -68,25 +68,24 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="space-y-4">
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-headline-bold text-foreground leading-tight break-words px-2 max-w-[90vw] mx-auto"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-headline-bold text-foreground leading-tight break-words px-2 max-w-[90vw] mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Fuel Your Growth With{' '}
+              Build{' '}
               <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Genessence
+                AI-Ready Manufacturing
               </span>
             </motion.h1>
             
             <motion.p 
-              className="text-base sm:text-lg md:text-2xl text-muted-foreground max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed break-words px-2"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-[90vw] sm:max-w-4xl mx-auto leading-relaxed break-words px-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Transform Traditional Operations Into Intelligent Systems That Deliver{' '}
-              <span className="text-primary font-semibold">Proven ROI</span>
+              A manufacturing transformation partner that digitizes, connects, and governs factory operations end-to-end — creating AI-ready enterprises.
             </motion.p>
           </div>
 
